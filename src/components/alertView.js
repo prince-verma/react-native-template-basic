@@ -40,7 +40,7 @@ export default class AlertView extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      closeOnTouchOutside: false,
+      closeOnTouchOutside: props.closeOnTouchOutside,
       title: "Alert",
       message: "Your custom message",
       buttons: [
@@ -81,7 +81,13 @@ export default class AlertView extends React.Component {
 
   render() {
     const { backgroundColor, animationType } = this.props;
-    const { title, message, buttons, show, closeOnTouchOutside = false } = this.state;
+    const {
+      title,
+      message,
+      buttons,
+      show,
+      closeOnTouchOutside = false
+    } = this.state;
 
     return (
       <Modal
@@ -90,7 +96,11 @@ export default class AlertView extends React.Component {
         animationType={animationType || "fade"}
         onRequestClose={this.closeModal}
       >
-        <TouchableWithoutFeedback>
+        <TouchableWithoutFeedback
+          onPress={() => {
+            closeOnTouchOutside && this.closeModal();
+          }}
+        >
           <View style={[styles.container, { backgroundColor }]}>
             <View style={styles.alertBoxContainer}>
               <View style={{ padding: 24 }}>
