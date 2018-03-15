@@ -40,6 +40,6 @@ root:
   readme.md
 ```
 
-##Links
+## Links
 github link : https://github.com/prince-verma/react-native-template-basic
 npm link : https://www.npmjs.com/package/react-native-template-basic
