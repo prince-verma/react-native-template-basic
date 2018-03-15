@@ -12,7 +12,7 @@ This will provide the basic folder structure and some resulable components that 
 This will saves your time by providing some basic implementaion of an react-native applicaton.
 
 The folder structure that you will have is :
-
+```
 root:
   android
   ios
@@ -38,3 +38,4 @@ root:
   LICENSE
   package.json
   readme.md
+```
