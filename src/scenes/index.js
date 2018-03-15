@@ -1,11 +1,5 @@
 import React from "react";
-import {
-  View,
-  FlatList,
-  StyleSheet,
-  Text,
-  TouchableOpacity
-} from "react-native";
+import { View, Text, TouchableOpacity } from "react-native";
 import { Alert } from "../components";
 
 export default class App extends React.PureComponent {
@@ -15,8 +9,21 @@ export default class App extends React.PureComponent {
 
   render() {
     return (
-      <View style={{ flex: 1 }}>
+      <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
         <Text>This is template Project</Text>
+        <TouchableOpacity
+          onPress={() => {
+            Alert({
+              title: "Title",
+              message: "Your cutom message will stay here.",
+              buttons: [{ title: "Ok" }]
+            });
+          }}
+        >
+          <View>
+            <Text>Show Alert</Text>
+          </View>
+        </TouchableOpacity>
       </View>
     );
   }

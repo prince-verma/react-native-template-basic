@@ -11,29 +11,20 @@ import {
 import Events from "react-native-simple-events";
 import { height, isFunction, width } from "../utilities";
 
+const defaultButtons = [
+  { title: "CANCEL", onPress: () => {} },
+  { title: "OK", onPress: () => {} }
+];
+
 export function Alert(data = {}) {
   let {
-    title = "Alert",
-    message = "Your custom message",
-    buttons = [
-      {
-        title: "CANCEL",
-        onPress: () => {}
-      },
-      {
-        title: "OK",
-        onPress: () => {}
-      }
-    ],
+    title = "Alert-Title",
+    message = "Your custom message will appear here.",
+    buttons = defaultButtons,
     ...otherProps
   } = data;
 
-  Events.trigger("showAlert", {
-    message,
-    title,
-    buttons,
-    ...otherProps
-  });
+  Events.trigger("showAlert", { message, title, buttons, ...otherProps });
 }
 
 export default class AlertView extends React.Component {
@@ -43,16 +34,7 @@ export default class AlertView extends React.Component {
       closeOnTouchOutside: props.closeOnTouchOutside,
       title: "Alert",
       message: "Your custom message",
-      buttons: [
-        {
-          title: "CANCEL",
-          onPress: () => {}
-        },
-        {
-          title: "OK",
-          onPress: () => {}
-        }
-      ],
+      buttons: defaultButtons,
       show: false
     };
   }
