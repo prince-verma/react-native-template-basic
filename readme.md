@@ -19,7 +19,15 @@ root:
   node_modules
   src:
     components:
-      alertView.js
+      alertView
+        index.js
+      input
+        errorView.js
+        index.js
+        inputStyle.js
+        textInput.js
+      snackbar
+        index.js
       index.js
       reloadOnAppStateChange.js
     scenes:
