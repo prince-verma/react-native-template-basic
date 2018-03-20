@@ -1,26 +1,39 @@
 import config from "../../config";
 
-export const get = handleApiCallRN.bind(null, "GET");
-export const post = handleApiCallRN.bind(null, "POST");
-export const put = handleApiCallRN.bind(null, "PUT");
-export const del = handleApiCallRN.bind(null, "DELETE");
+export function get(url) {
+  return handleApiCallRN("GET", url);
+}
+
+export function post(url, data) {
+  return handleApiCallRN("POST", url, data);
+}
+
+export function put(url, data) {
+  return handleApiCallRN("PUT", url, data);
+}
+
+export function del(url, data) {
+  return handleApiCallRN("DELETE", url, data);
+}
 
 function handleApiCallRN(type, url, data = {}) {
   return new Promise(function(resolve, reject) {
-    const options = { method: type };
-
-    if (type !== "GET") {
-      options.headers = {
+    let options = {
+      method: type,
+      body: data ? JSON.stringify(data) : null,
+      mode: "cors",
+      headers: {
         Accept: "application/json",
         "Content-Type": "application/json"
-      };
-      options.body = data ? JSON.stringify(data) : null;
-    }
+      }
+    };
+    type === "GET" && delete options.body;
+    type === "GET" && delete options.mode;
+    type === "GET" && delete options.headers;
 
     if (url.toLowerCase().indexOf("http") < 0) {
       url = config.SERVER_NATIVE_URL + url;
     }
-
     return fetch(url, options)
       .then(response => {
         resolve(response.json());
