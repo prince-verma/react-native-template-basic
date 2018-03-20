@@ -1,3 +1,4 @@
+import axios from "axios";
 import config from "../../config";
 
 export const get = handleApiCallRN.bind(null, "GET");
@@ -5,26 +6,27 @@ export const post = handleApiCallRN.bind(null, "POST");
 export const put = handleApiCallRN.bind(null, "PUT");
 export const del = handleApiCallRN.bind(null, "DELETE");
 
-function handleApiCallRN(type, url, data = {}) {
-  return new Promise(function(resolve, reject) {
-    const options = { method: type };
+function handleApiCallRN(method, url, data = {}, otherOptions = {}) {
+  const options = {
+    method,
+    timeout: 5000,
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json"
+    },
+    ...otherOptions
+  };
 
-    if (type !== "GET") {
-      options.headers = {
-        Accept: "application/json",
-        "Content-Type": "application/json"
-      };
-      options.body = data ? JSON.stringify(data) : null;
-    }
+  if (method !== "GET") {
+    options.data = data;
+  }
 
-    if (url.toLowerCase().indexOf("http") < 0) {
-      url = config.SERVER_NATIVE_URL + url;
-    }
+  if (url.toLowerCase().indexOf("http") < 0) {
+    url = config.SERVER_NATIVE_URL + url;
+  }
 
-    return fetch(url, options)
-      .then(response => {
-        resolve(response.json());
-      })
-      .catch(reject);
-  });
+  options.url = url;
+  console.warn("options", options);
+
+  return axios(options);
 }
