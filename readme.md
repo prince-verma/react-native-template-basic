@@ -31,12 +31,27 @@ root:
       index.js
       reloadOnAppStateChange.js
     scenes:
+      aboutUs
+        aboutUs.js
+      drawer:
+        drawer.js
+        drawerMenu.js
+        drawerSideMenu.js
+      login:
+        login.js
+      signup:
+        signup.js
+      welcome:
+        welcome.js
       index.js
+      manin.js
+      routes.js
     styles:
       index.js
     utilities:
       api.js
       index.js
+      navigationService.js
       storage.js
       validations.js
   App.js
