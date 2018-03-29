@@ -4,12 +4,4 @@ import ReloadOnAppStateChange from "./reloadOnAppStateChange";
 import Input from "./input";
 import Loading from "./loading";
 
-export {
-  Input,
-  AlertView,
-  Alert,
-  SnackBar,
-  showSnackBar,
-  ReloadOnAppStateChange,
-  Loading,
-};
+export { Input, AlertView, Alert, SnackBar, showSnackBar, ReloadOnAppStateChange, Loading };

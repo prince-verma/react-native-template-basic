@@ -11,10 +11,7 @@ import {
 import Events from "react-native-simple-events";
 import { height, isFunction, width } from "../../utilities";
 
-const defaultButtons = [
-  { title: "CANCEL", onPress: () => {} },
-  { title: "OK", onPress: () => {} }
-];
+const defaultButtons = [{ title: "CANCEL", onPress: () => {} }, { title: "OK", onPress: () => {} }];
 
 export function Alert(data = {}) {
   let {
@@ -63,21 +60,10 @@ export default class AlertView extends React.Component {
 
   render() {
     const { backgroundColor, animationType } = this.props;
-    const {
-      title,
-      message,
-      buttons,
-      show,
-      closeOnTouchOutside = false
-    } = this.state;
+    const { title, message, buttons, show, closeOnTouchOutside = false } = this.state;
 
     return (
-      <Modal
-        transparent
-        visible={show}
-        animationType={animationType || "fade"}
-        onRequestClose={this.closeModal}
-      >
+      <Modal transparent visible={show} animationType={animationType || "fade"} onRequestClose={this.closeModal}>
         <TouchableWithoutFeedback
           onPress={() => {
             closeOnTouchOutside && this.closeModal();

@@ -79,8 +79,7 @@ export default class Input extends React.PureComponent {
     inputStyle = inputStyle ? inputStyle : {};
     width = width || this.state.width;
     height = height || this.state.height;
-    animatedBorderHeight =
-      animatedBorderHeight || this.state.animatedBorderHeight;
+    animatedBorderHeight = animatedBorderHeight || this.state.animatedBorderHeight;
     animatedBorderColor = animatedBorderColor || this.state.animatedBorderColor;
     borderBottomHeight = borderBottomHeight || this.state.borderBottomHeight;
     borderBottomColor = borderBottomColor || this.state.borderBottomColor;

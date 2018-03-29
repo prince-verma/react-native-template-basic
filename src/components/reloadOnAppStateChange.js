@@ -4,7 +4,7 @@ import { AppState, View } from "react-native";
 export default class ReloadViewOnAppStateChange extends React.PureComponent {
   constructor(p) {
     super(p);
-    
+
     this.state = {
       reload: true
     };

@@ -1,13 +1,5 @@
 import React, { PureComponent } from "react";
-import {
-  Animated,
-  StyleSheet,
-  Text,
-  TouchableOpacity,
-  View,
-  PanResponder,
-  Dimensions
-} from "react-native";
+import { Animated, StyleSheet, Text, TouchableOpacity, View, PanResponder, Dimensions } from "react-native";
 import Events from "react-native-simple-events";
 
 const width = Dimensions.get("window").width;
@@ -244,9 +236,7 @@ export default class SnackBar extends PureComponent {
         fontSize: 14
       }
     ];
-    let messageTextStyle = [
-      { color: textColor, fontFamily: "Roboto-Regular", fontSize: 14 }
-    ];
+    let messageTextStyle = [{ color: textColor, fontFamily: "Roboto-Regular", fontSize: 14 }];
 
     if (show) {
       return (
@@ -257,16 +247,8 @@ export default class SnackBar extends PureComponent {
           }}
           {...this.panResponder.panHandlers}
         >
-          <View
-            style={[
-              { flex: 10, paddingVertical: 14, justifyContent: "center" }
-            ]}
-          >
-            <Text
-              ellipsizeMode="tail"
-              numberOfLines={2}
-              style={messageTextStyle}
-            >
+          <View style={[{ flex: 10, paddingVertical: 14, justifyContent: "center" }]}>
+            <Text ellipsizeMode="tail" numberOfLines={2} style={messageTextStyle}>
               {message}
             </Text>
           </View>
@@ -289,9 +271,7 @@ export default class SnackBar extends PureComponent {
                     justifyContent: "center"
                   }}
                 >
-                  <Text style={buttonTextStyle}>
-                    {confirmText.toUpperCase()}
-                  </Text>
+                  <Text style={buttonTextStyle}>{confirmText.toUpperCase()}</Text>
                 </View>
               </TouchableOpacity>
             </View>

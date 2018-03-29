@@ -1,22 +1,9 @@
 import React from "react";
-import {
-  Text,
-  TouchableHighlight,
-  TouchableOpacity,
-  View,
-  StyleSheet
-} from "react-native";
+import { Text, TouchableHighlight, TouchableOpacity, View, StyleSheet } from "react-native";
 import { getResetAction } from "../../utilities";
+import styles from "../../styles";
 
 export default class Menu extends React.PureComponent {
-  getTouchable = isSelected => {
-    if (isSelected) {
-      return TouchableOpacity;
-    } else {
-      return TouchableHighlight;
-    }
-  };
-
   navigateToMenu = () => {
     const { navigateTo, extras } = this.props;
     const { selectMenu, navigation, rootNavigation } = extras;
@@ -31,7 +18,6 @@ export default class Menu extends React.PureComponent {
   render() {
     const { navigateTo, icon, extras, title } = this.props;
     const { selectMenu, navigation } = extras;
-    const Touchable = this.getTouchable(isSelected);
     const activeItemKey =
       navigation.state &&
       navigation.state.routes[0] &&
@@ -40,37 +26,30 @@ export default class Menu extends React.PureComponent {
     const isSelected = activeItemKey === navigateTo;
 
     return (
-      <Touchable
-        activeOpacity={isSelected ? 0.4 : 1}
-        underlayColor={isSelected ? "#fff" : "rgba(155,155,155,0.3)"}
-        style={styles.menuStyle}
+      <TouchableHighlight
+        underlayColor={"rgba(155,155,155,0.3)"}
+        style={[componentStyles.menuStyle, styles.mv1, isSelected && { backgroundColor: "rgba(155,155,155,0.3)" }]}
         onPress={this.navigateToMenu}
       >
-        <View style={{ flex: 1, flexDirection: "row", marginVertical: 1 }}>
+        <View style={[{ flex: 1 }, styles.flexRow, styles.mv2]}>
           {/* ----------------- icon --------------------------- */}
           {/* <Icon name={icon} color={isSelected ? "#0059a3" : "#9B9B9B"} size={24} /> */}
           {/* ----------------- icon --------------------------- */}
 
           {/* ----------------- title --------------------------- */}
           <View style={{ justifyContent: "center" }}>
-            <Text
-              verticalAlign={"center"}
-              style={[
-                styles.textStyle,
-                isSelected ? { color: "#0059a3" } : { color: "#212121" }
-              ]}
-            >
+            <Text verticalAlign={"center"} style={[componentStyles.textStyle]}>
               {title}
             </Text>
           </View>
           {/* ----------------- title --------------------------- */}
         </View>
-      </Touchable>
+      </TouchableHighlight>
     );
   }
 }
 
-const styles = StyleSheet.create({
+const componentStyles = StyleSheet.create({
   menuStyle: {
     flex: 1,
     maxHeight: 48,

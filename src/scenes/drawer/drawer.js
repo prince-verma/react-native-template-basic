@@ -44,9 +44,7 @@ export default class MainDrawer extends React.PureComponent {
       },
       {
         drawerWidth: width - 50,
-        contentComponent: props => (
-          <DrawerSideMenu props={props} rootNavigation={rootNavigation} />
-        )
+        contentComponent: props => <DrawerSideMenu props={props} rootNavigation={rootNavigation} />
       }
     );
     return <Drawer />;

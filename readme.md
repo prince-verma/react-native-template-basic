@@ -11,6 +11,8 @@ react-native init <project-name> --template basic
 This will provide the basic folder structure and some resulable components that you can use in your project.
 This will saves your time by providing some basic implementaion of an react-native applicaton.
 
+It also implements some of basic login, signup, welcome screens, side drawer menu etc.
+
 The folder structure that you will have is :
 ```
 root:
