@@ -231,12 +231,11 @@ export default class SnackBar extends PureComponent {
     let buttonTextStyle = [
       {
         color: buttonColor,
-        fontFamily: "Roboto-Medium",
         textAlign: "left",
         fontSize: 14
       }
     ];
-    let messageTextStyle = [{ color: textColor, fontFamily: "Roboto-Regular", fontSize: 14 }];
+    let messageTextStyle = [{ color: textColor, fontSize: 14 }];
 
     if (show) {
       return (

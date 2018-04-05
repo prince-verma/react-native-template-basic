@@ -62,6 +62,5 @@ const componentStyles = StyleSheet.create({
     paddingLeft: 30,
     fontSize: 14,
     lineHeight: 16,
-    fontFamily: "Roboto-Medium"
   }
 });

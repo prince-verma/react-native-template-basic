@@ -129,12 +129,10 @@ const styles = StyleSheet.create({
   title: {
     color: "#1f1f1f",
     fontSize: 20,
-    fontFamily: "Roboto-Medium"
   },
   message: {
     color: "#9b9b9b",
     fontSize: 16,
-    fontFamily: "Roboto-Regular",
     lineHeight: 24
   },
   buttonsContainer: {
@@ -156,6 +154,5 @@ const styles = StyleSheet.create({
   buttonText: {
     color: "#03a9f4",
     fontSize: 14,
-    fontFamily: "Roboto-Medium"
   }
 });
