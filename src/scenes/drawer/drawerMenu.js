@@ -61,6 +61,6 @@ const componentStyles = StyleSheet.create({
   textStyle: {
     paddingLeft: 30,
     fontSize: 14,
-    lineHeight: 16,
+    lineHeight: 16
   }
 });

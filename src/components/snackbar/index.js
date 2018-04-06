@@ -44,7 +44,8 @@ export default class SnackBar extends PureComponent {
       show: false,
       duration: 5000,
       animationTime: 250,
-      height: 48,
+      maxHeight: 48,
+      maxHeight: 48,
       textColor: "#FFF",
       buttonColor: "#03a9f4",
       backgroundColor: "#323232",
@@ -161,22 +162,28 @@ export default class SnackBar extends PureComponent {
   };
 
   hideSnackBar = () => {
-    let { top, bottom, position, height, animationTime } = this.state;
+    let { top, bottom, position, maxHeight, animationTime } = this.state;
     position === "top" &&
       Animated.sequence([
         Animated.timing(this.state.top, {
-          toValue: -1 * height,
+          toValue: -1 * maxHeight,
           duration: animationTime
         })
-      ]).start();
+      ]).start(() => {
+        this.setPanValueToZero();
+        this.setState({ show: false });
+      });
 
     position === "bottom" &&
       Animated.sequence([
         Animated.timing(this.state.bottom, {
-          toValue: -1 * height,
+          toValue: -1 * maxHeight,
           duration: animationTime
         })
-      ]).start();
+      ]).start(() => {
+        this.setPanValueToZero();
+        this.setState({ show: false });
+      });
   };
 
   handlePanResponderRelease = (e, gestureState) => {
@@ -190,7 +197,7 @@ export default class SnackBar extends PureComponent {
 
   render() {
     let {
-      height,
+      maxHeight,
       show,
       message,
       confirmText,
@@ -212,7 +219,7 @@ export default class SnackBar extends PureComponent {
       {
         position: "absolute",
         flexDirection: "row",
-        minHeight: height,
+        minHeight: maxHeight,
         maxHeight: 80,
         width,
         backgroundColor: backgroundColor,

@@ -128,7 +128,7 @@ const styles = StyleSheet.create({
   },
   title: {
     color: "#1f1f1f",
-    fontSize: 20,
+    fontSize: 20
   },
   message: {
     color: "#9b9b9b",
@@ -153,6 +153,6 @@ const styles = StyleSheet.create({
   },
   buttonText: {
     color: "#03a9f4",
-    fontSize: 14,
+    fontSize: 14
   }
 });
