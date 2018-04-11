@@ -19,7 +19,7 @@ export default class Input extends React.PureComponent {
     };
   }
 
-  componentWillMount() {
+  componentDidMount() {
     this.state.value.setValue(0.0001);
   }
 
