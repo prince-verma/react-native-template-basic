@@ -55,9 +55,17 @@ Just import the Input compopent and it will provide basic animated input componn
 
 <SnackBar id={"SnackBar_Root_App"} />
 
+
+
 // import showSnackBar function from same file and use it as
 
-showSnackBar({message:"custom message", position:"top", duration = 2000,confirmText = "OK", onConfirm = () => {}});
+showSnackBar({
+  message:"custom message", 
+  position:"top", 
+  duration = 2000,
+  confirmText = "OK", 
+  onConfirm = () => {}
+});
 ```
 
 ### Alert
@@ -71,68 +79,75 @@ showSnackBar({message:"custom message", position:"top", duration = 2000,confirmT
 
 <AlertView id={"Alert_Root_App"} />
 
+
+
 // import Alert function from same file and use it as
 
 Alert({
   title = "Alert-Title",
   message = "Your custom message will appear here.",
-  buttons = [{ title: "CANCEL", onPress: () => {} }, { title: "OK", onPress: () => {} }]
+  buttons = [
+    { title: "CANCEL", onPress: () => {} }, 
+    { title: "OK", onPress: () => {} }]
   });
 ```
-
 
 
 The folder structure that you will have is :
 
 ```
-root:
-  android
-  ios
-  node_modules
-  src:
-    components:
-      alertView
-        index.js
-      input
-        errorView.js
-        index.js
-        inputStyle.js
-        textInput.js
-      snackbar
-        index.js
-      index.js
-      reloadOnAppStateChange.js
-    scenes:
-      aboutUs
-        aboutUs.js
-      drawer:
-        drawer.js
-        drawerMenu.js
-        drawerSideMenu.js
-      login:
-        login.js
-      signup:
-        signup.js
-      welcome:
-        welcome.js
-      index.js
-      mani.js
-      routes.js
-    styles:
-      index.js
-    utilities:
-      api.js
-      index.js
-      navigationService.js
-      storage.js
-      validations.js
-  App.js
-  App.json
-  config.js
-  index.js
-  LICENSE
-  package.json
-  readme.md
+<root-of-project>
+└─── android
+└─── ios
+└─── node_modules
+└─── src
+│   └─── components
+│   |        index.js
+│   |        reloadOnAppStateChange.js
+│   |        
+│   |   └─── alertView
+│   |   |       index.js
+│   |   └─── input
+│   |   |       errorView.js
+│   |   |       index.js
+│   |   |       inputStyle.js
+│   |   |       textInput.js
+│   |   └─── snackbar
+│   |   |       index.js
+│   |   |   
+│   └─── scenes
+│   |        index.js
+│   |        main.js
+│   |        routes.js
+│   |        
+│   |   └─── aboutUs
+│   |   |       aboutUs.js
+│   |   └─── drawer
+│   |   |       drawer.js
+│   |   |       drawerMenu.js
+│   |   |       drawerSideMenu.js
+│   |   └─── login
+│   |   |       login.js
+│   |   └─── signup
+│   |   |       signup.js
+│   |   └─── welcome
+│   |   |       welcome.js
+│   └─── styles
+│   |        index.js
+│   └─── utilities
+│   |        index.js
+│   |        api.js
+│   |        navigationService.js
+│   |        storage.js
+│   |        validations.js
+│   
+|    App.js
+|    App.json
+|    config.js
+|    index.js
+|    LICENSE
+|    package.json
+|    readme.md
 ```
 
 ## Links
