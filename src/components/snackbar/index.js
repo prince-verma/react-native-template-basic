@@ -1,5 +1,5 @@
 import React, { PureComponent } from "react";
-import { Animated, StyleSheet, Text, TouchableOpacity, View, PanResponder, Dimensions } from "react-native";
+import { Animated, Dimensions, PanResponder, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import Events from "react-native-simple-events";
 
 const width = Dimensions.get("window").width;
@@ -14,7 +14,8 @@ export const showSnackBar = (data = {}) => {
     duration = 4000,
     animationTime = 250,
     backgroundColor = "#323232",
-    onConfirm = () => {},
+    onConfirm = () => {
+    },
     ...otherProps
   } = data;
 
@@ -57,7 +58,7 @@ export default class SnackBar extends PureComponent {
     };
 
     this._animatedValueX = 0;
-    this.state.pan.x.addListener(data => (this._animatedValueX = data.value));
+    this.state.pan.x.addListener(data => ( this._animatedValueX = data.value ));
 
     this.panResponder = PanResponder.create({
       onStartShouldSetPanResponder: () => true,
@@ -122,30 +123,30 @@ export default class SnackBar extends PureComponent {
           this.setPanValueToZero();
 
           position === "top" &&
-            Animated.sequence([
-              Animated.timing(this.state.top, {
-                toValue: 0,
-                duration: animationTime
-              }),
-              Animated.delay(duration),
-              Animated.timing(this.state.top, {
-                toValue: -1 * height,
-                duration: animationTime
-              })
-            ]).start();
+          Animated.sequence([
+            Animated.timing(this.state.top, {
+              toValue: 0,
+              duration: animationTime
+            }),
+            Animated.delay(duration),
+            Animated.timing(this.state.top, {
+              toValue: -1 * height,
+              duration: animationTime
+            })
+          ]).start();
 
           position === "bottom" &&
-            Animated.sequence([
-              Animated.timing(this.state.bottom, {
-                toValue: 0,
-                duration: animationTime
-              }),
-              Animated.delay(duration),
-              Animated.timing(this.state.bottom, {
-                toValue: -1 * height,
-                duration: animationTime
-              })
-            ]).start();
+          Animated.sequence([
+            Animated.timing(this.state.bottom, {
+              toValue: 0,
+              duration: animationTime
+            }),
+            Animated.delay(duration),
+            Animated.timing(this.state.bottom, {
+              toValue: -1 * height,
+              duration: animationTime
+            })
+          ]).start();
 
           this.timeout = setTimeout(() => {
             this.setPanValueToZero();
@@ -164,26 +165,26 @@ export default class SnackBar extends PureComponent {
   hideSnackBar = () => {
     let { top, bottom, position, maxHeight, animationTime } = this.state;
     position === "top" &&
-      Animated.sequence([
-        Animated.timing(this.state.top, {
-          toValue: -1 * maxHeight,
-          duration: animationTime
-        })
-      ]).start(() => {
-        this.setPanValueToZero();
-        this.setState({ show: false });
-      });
+    Animated.sequence([
+      Animated.timing(this.state.top, {
+        toValue: -1 * maxHeight,
+        duration: animationTime
+      })
+    ]).start(() => {
+      this.setPanValueToZero();
+      this.setState({ show: false });
+    });
 
     position === "bottom" &&
-      Animated.sequence([
-        Animated.timing(this.state.bottom, {
-          toValue: -1 * maxHeight,
-          duration: animationTime
-        })
-      ]).start(() => {
-        this.setPanValueToZero();
-        this.setState({ show: false });
-      });
+    Animated.sequence([
+      Animated.timing(this.state.bottom, {
+        toValue: -1 * maxHeight,
+        duration: animationTime
+      })
+    ]).start(() => {
+      this.setPanValueToZero();
+      this.setState({ show: false });
+    });
   };
 
   handlePanResponderRelease = (e, gestureState) => {
@@ -207,7 +208,8 @@ export default class SnackBar extends PureComponent {
       textColor,
       buttonColor,
       backgroundColor,
-      onConfirm = () => {}
+      onConfirm = () => {
+      }
     } = this.state;
 
     animatedOpacity = this.state.pan.x.interpolate({
@@ -285,7 +287,7 @@ export default class SnackBar extends PureComponent {
         </Animated.View>
       );
     } else {
-      return <View />;
+      return <View/>;
     }
   }
 }

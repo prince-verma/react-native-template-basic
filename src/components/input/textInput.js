@@ -2,18 +2,19 @@ import React from "react";
 import { Animated, TextInput, View } from "react-native";
 import Error from "./errorView";
 import styles from "./inputStyle";
+import {COLOR} from '../../styles';
 
 export default class Input extends React.PureComponent {
   constructor(props) {
     super(props);
     this.state = {
-      width: 300,
+      width: 280,
       initialWidth: 0,
       height: 50,
       borderBottomHeight: 1,
       animatedBorderHeight: 2,
-      borderBottomColor: "#c9c9c9",
-      animatedBorderColor: "#b9b9b9",
+      borderBottomColor: "#000",
+      animatedBorderColor: "#000",
       animationTime: 200,
       value: new Animated.Value(0)
     };
@@ -29,7 +30,7 @@ export default class Input extends React.PureComponent {
 
     this.setState({ initialWidth: 1 });
     this.state.value.setValue(0.0001);
-    this.setState({ borderBottomColor: borderBottomColor || "#c9c9c9" });
+    this.setState({ borderBottomColor: borderBottomColor || "#000" });
 
     Animated.timing(this.state.value, {
       toValue: width,
@@ -50,7 +51,7 @@ export default class Input extends React.PureComponent {
     }).start();
     setTimeout(() => {
       this.setState({
-        borderBottomColor: borderBottomColor || "#c9c9c9",
+        borderBottomColor: borderBottomColor || "#000",
         initialWidth: 0
       });
     }, this.state.animationTime);
@@ -79,10 +80,10 @@ export default class Input extends React.PureComponent {
     inputStyle = inputStyle ? inputStyle : {};
     width = width || this.state.width;
     height = height || this.state.height;
-    animatedBorderHeight = animatedBorderHeight || this.state.animatedBorderHeight;
-    animatedBorderColor = animatedBorderColor || this.state.animatedBorderColor;
     borderBottomHeight = borderBottomHeight || this.state.borderBottomHeight;
     borderBottomColor = borderBottomColor || this.state.borderBottomColor;
+    animatedBorderHeight = animatedBorderHeight || this.state.animatedBorderHeight;
+    animatedBorderColor = animatedBorderColor || borderBottomColor || this.state.animatedBorderColor;
 
     borderBottomColor = errorMessage ? "#D50000" : borderBottomColor;
     animatedBorderColor = errorMessage ? "#D50000" : animatedBorderColor;

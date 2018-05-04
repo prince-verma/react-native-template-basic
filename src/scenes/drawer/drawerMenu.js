@@ -1,5 +1,5 @@
 import React from "react";
-import { Text, TouchableHighlight, TouchableOpacity, View, StyleSheet } from "react-native";
+import { StyleSheet, Text, TouchableHighlight, TouchableOpacity, View } from "react-native";
 import { getResetAction } from "../../utilities";
 import styles from "../../styles";
 

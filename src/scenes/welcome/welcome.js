@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Text, TouchableOpacity } from "react-native";
+import { Text, TouchableOpacity, View } from "react-native";
 import styles from "../../styles";
 
 export default class Welcome extends React.Component {
@@ -18,11 +18,12 @@ export default class Welcome extends React.Component {
           <Text style={[styles.cWhite, styles.font18]}>React-Native-Template-Basic</Text>
         </View>
 
-        <View style={[{ flex: 9 }, styles.bgAppDark]} />
+        <View style={[{ flex: 9 }, styles.bgAppDark]}/>
 
         <View style={[{ flex: 5 }, styles.aCenter]}>
           <View style={[{ flex: 1 }]}>
-            <TouchableOpacity style={{ flex: 1 }} onPress={() => {}}>
+            <TouchableOpacity style={{ flex: 1 }} onPress={() => {
+            }}>
               <View style={[{ flex: 1 }, styles.center]}>
                 <Text style={[styles.cWhite, styles.font16, styles.bold]}>Continue with facebook</Text>
               </View>

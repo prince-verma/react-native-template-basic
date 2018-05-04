@@ -17,16 +17,6 @@ export default class Login extends React.Component {
     return (
       <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
         <View style={[{ flex: 1 }, styles.bgApp, styles.ph20]}>
-          <View style={[styles.h45, styles.jCenter]}>
-            <TouchableOpacity
-              onPress={() => {
-                this.props.navigation.goBack();
-              }}
-            >
-              <Text style={[styles.cWhite, styles.font20]}>{"<"}</Text>
-            </TouchableOpacity>
-          </View>
-
           <View style={[styles.pv20]}>
             <Text style={[styles.cWhite, styles.font24]}>Welcome</Text>
           </View>

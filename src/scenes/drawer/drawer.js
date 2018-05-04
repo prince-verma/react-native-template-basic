@@ -3,6 +3,7 @@ import { DrawerNavigator, StackNavigator } from "react-navigation";
 
 import { width } from "../../utilities";
 import DrawerSideMenu from "./drawerSideMenu";
+import styles,{COLOR} from '../../styles';
 
 // Routes
 import Profile from "../profile/profile";
@@ -28,7 +29,13 @@ const DRAWER_ROUTES = StackNavigator(
     }
   },
   {
-    initialRouteName: "Profile"
+    initialRouteName: "Profile",
+    navigationOptions:{
+      headerStyle:styles.bgApp, 
+      headerBackTitleStyle:COLOR.WHITE,
+      headerTintColor: COLOR.WHITE,
+      headerTitleStyle:styles.cWhite
+    }
   }
 );
 

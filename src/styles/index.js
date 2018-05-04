@@ -1,8 +1,24 @@
 import { Dimensions, StyleSheet } from "react-native";
-
+import {isIos} from '../utilities'
 const { width } = Dimensions.get("window");
 
+export const COLOR = {
+  WHITE:"#FFF",
+  BLACK:"#000",
+  RED: "#D50000",
+  BLUE: "#2196f3",
+  LIGHT_GRAY: "#F1F1F1",
+  GRAY: "#9D9D9D",
+  APP: "#7D7D7D",
+  APP_DARK: "#2D2D2D",
+}
+
 export default StyleSheet.create({
+  sceneContainer:{
+    flex:1,
+    paddingTop: isIos ? 40 : 20
+  },
+
   w25: { width: 25 },
   w50: { width: 50 },
   w00: { width: 100 },
@@ -177,21 +193,22 @@ export default StyleSheet.create({
 
   bold: { fontWeight: "bold" },
 
-  cBlack: { color: "#000000" },
-  cBlue: { color: "#2196f3" },
-  cWhite: { color: "#FFFFFF" },
-  cGrey: { color: "#e6e6e6" },
-  cRed: { color: "#D50000" },
+  cBlack: { color: COLOR.BLACK},
+  cBlue: { color: COLOR.BLUE },
+  cWhite: { color: COLOR.WHITE },
+  cGrey: { color: COLOR.GRAY },
+  cRed: { color: COLOR.RED },
+  cApp: { color: COLOR.APP },
+  cAppDark: { color: COLOR.APP_DARK },
 
   bgTransparent: { backgroundColor: "transparent" },
-  bgWhite: { backgroundColor: "white" },
-  bgRed: { backgroundColor: "#D50000" },
-  bgBlue: { backgroundColor: "#2196f3" },
-  bgLightBlue: { backgroundColor: "#F5FCFF" },
-  bgLightGray: { backgroundColor: "#F1F1F1" },
-  bgGray: { backgroundColor: "#9D9D9D" },
-  bgApp: { backgroundColor: "#7D7D7D" },
-  bgAppDark: { backgroundColor: "#2D2D2D" },
+  bgWhite: { backgroundColor: COLOR.WHITE },
+  bgRed: { backgroundColor: COLOR.RED },
+  bgBlue: { backgroundColor: COLOR.BLUE },
+  bgLightGray: { backgroundColor: COLOR.LIGHT_GRAY },
+  bgGray: { backgroundColor: COLOR.GRAY },
+  bgApp: { backgroundColor: COLOR.APP },
+  bgAppDark: { backgroundColor: COLOR.APP_DARK },
 
   textCenter: { textAlign: "center" },
   textRight: { textAlign: "right" },
@@ -352,29 +369,17 @@ export default StyleSheet.create({
   clear: { height: 1, backgroundColor: "#46407B", marginVertical: 2 },
 
   shadow2: {
-    shadowRadius: 4,
-    shadowColor: "black",
     elevation: 2,
-    shadowOffset: { height: 2, width: 2 },
-    shadowOpacity: 0.4
-  },
-  shadow: {
-    shadowRadius: 4,
+    shadowRadius: 2,
     shadowColor: "black",
-    elevation: 9,
-    shadowOffset: { height: 5, width: 0 },
-    shadowOpacity: 0.4
+    shadowOffset: { height: 2, width: 0 },
+    shadowOpacity: 0.4,
   },
-  shadow2IOS: {
-    shadowRadius: 4,
+  shadow4: {
+    elevation: 4,
+    shadowRadius: 2,
     shadowColor: "black",
-    shadowOffset: { height: 2, width: 2 },
-    shadowOpacity: 0.4
-  },
-  shadowIOS: {
-    shadowRadius: 4,
-    shadowColor: "black",
-    shadowOffset: { height: 5, width: 0 },
+    shadowOffset: { height: 4, width: 0 },
     shadowOpacity: 0.4
   }
 });
