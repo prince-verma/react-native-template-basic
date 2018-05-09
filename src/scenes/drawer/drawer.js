@@ -1,12 +1,24 @@
 import React from "react";
 import { DrawerNavigator, StackNavigator } from "react-navigation";
+import { TouchableOpacity } from 'react-native';
 
-import { width } from "../../utilities";
+import { Icon } from '../../components';
 import DrawerSideMenu from "./drawerSideMenu";
+import { width } from "../../utilities";
 import styles, { COLOR } from '../../styles';
 // Routes
 import Profile from "../profile/profile";
 import AboutUs from "../aboutUs/aboutUs";
+
+const MenuIcon = ({ navigation }) => {
+  return (
+    <TouchableOpacity style={[styles.ph16, styles.pv5]} onPress={() => {
+      navigation.navigate("DrawerOpen");
+    }}>
+      <Icon name="menu" color={COLOR.WHITE} size={30}/>
+    </TouchableOpacity>
+  )
+};
 
 const DRAWER_ROUTES = StackNavigator(
   {
@@ -14,16 +26,15 @@ const DRAWER_ROUTES = StackNavigator(
       screen: Profile,
       navigationOptions: ({ navigation }) => {
         return {
-          title: "Profile"
+          title: "Profile",
+          headerLeft: <MenuIcon navigation={navigation}/>
         };
       }
     },
     AboutUs: {
       screen: AboutUs,
-      navigationOptions: ({ navigation }) => {
-        return {
-          title: "About Us"
-        };
+      navigationOptions: {
+        title: "About Us"
       }
     }
   },

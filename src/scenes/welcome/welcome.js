@@ -19,7 +19,7 @@ export default class Welcome extends React.Component {
           <Text style={[styles.cWhite, styles.font18]}>React-Native-Template-Basic</Text>
         </View>
 
-        <View style={[{ flex: 9 }, styles.bgAppDark]}/>
+        <View style={[{ flex: 9 }, styles.bgAppDark, styles.shadow2]}/>
 
         <View style={[{ flex: 5 }, styles.aCenter]}>
           <View style={[{ flex: 1 }]}>

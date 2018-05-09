@@ -1,8 +1,8 @@
 import React from "react";
 import { Keyboard, Text, TouchableOpacity, TouchableWithoutFeedback, View } from "react-native";
 import { getResetAction } from "../../utilities";
-import { Input } from "../../components";
-import styles from "../../styles";
+import { Icon, Input } from "../../components";
+import styles, { COLOR } from "../../styles";
 
 export default class Login extends React.Component {
   constructor(props) {
@@ -55,10 +55,10 @@ export default class Login extends React.Component {
 
           <TouchableOpacity
             activeOpacity={0.8}
-            style={[styles.circle50, styles.bgWhite, styles.shadow10, { alignSelf: "flex-end" }]}
+            style={[styles.circle50, styles.bgWhite, styles.shadow2, styles.center, { alignSelf: "flex-end" }]}
             onPress={this.onLogin}
           >
-            <Text style={[styles.cApp, styles.font18, { textAlignVertical: "center" }]}>{">"}</Text>
+            <Icon name={"keyboard-arrow-right"} size={30} color={COLOR.APP}/>
           </TouchableOpacity>
         </View>
       </TouchableWithoutFeedback>

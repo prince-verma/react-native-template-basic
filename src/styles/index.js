@@ -371,16 +371,16 @@ export default StyleSheet.create({
 
   shadow2: {
     elevation: 2,
-    shadowRadius: 2,
+    shadowRadius: 1,
     shadowColor: "black",
     shadowOffset: { height: 2, width: 0 },
-    shadowOpacity: 0.4,
+    shadowOpacity: 0.2,
   },
   shadow4: {
     elevation: 4,
-    shadowRadius: 2,
+    shadowRadius: 1,
     shadowColor: "black",
     shadowOffset: { height: 4, width: 0 },
-    shadowOpacity: 0.4
+    shadowOpacity: 0.2
   }
 });
