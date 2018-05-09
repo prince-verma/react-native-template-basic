@@ -1,5 +1,4 @@
 import React from "react";
-import { View, Text, ActivityIndicator, StyleSheet } from "react-native";
 import { getResetAction, Storage } from "../utilities";
 import { Loading } from "../components";
 
@@ -14,10 +13,11 @@ export default class Welcome extends React.Component {
       } else {
         navigation.dispatch(getResetAction("Welcome"));
       }
-    } catch (err) {}
+    } catch (err) {
+    }
   }
 
   render() {
-    return <Loading />;
+    return <Loading/>;
   }
 }

@@ -1,21 +1,22 @@
 import { Dimensions, StyleSheet } from "react-native";
-import {isIos} from '../utilities'
+import { isIos } from '../utilities'
+
 const { width } = Dimensions.get("window");
 
 export const COLOR = {
-  WHITE:"#FFF",
-  BLACK:"#000",
+  WHITE: "#FFF",
+  BLACK: "#000",
   RED: "#D50000",
   BLUE: "#2196f3",
   LIGHT_GRAY: "#F1F1F1",
   GRAY: "#9D9D9D",
-  APP: "#7D7D7D",
-  APP_DARK: "#2D2D2D",
+  APP: "#39a385",
+  APP_DARK: "#379c80",
 }
 
 export default StyleSheet.create({
-  sceneContainer:{
-    flex:1,
+  sceneContainer: {
+    flex: 1,
     paddingTop: isIos ? 40 : 20
   },
 
@@ -193,7 +194,7 @@ export default StyleSheet.create({
 
   bold: { fontWeight: "bold" },
 
-  cBlack: { color: COLOR.BLACK},
+  cBlack: { color: COLOR.BLACK },
   cBlue: { color: COLOR.BLUE },
   cWhite: { color: COLOR.WHITE },
   cGrey: { color: COLOR.GRAY },

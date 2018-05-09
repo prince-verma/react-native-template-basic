@@ -7,12 +7,11 @@ import Signup from "./signup/signup";
 import Welcome from "./welcome/welcome";
 import Drawer from "./drawer/drawer";
 
-import styles,{COLOR} from "../styles";
-import { getResetAction } from "../utilities";
+import styles, { COLOR } from "../styles";
 
-const nullHeader = ({ navigation }) => ({
+const nullHeader = ({ navigation }) => ( {
   header: null
-});
+} );
 
 const ROUTE_CONFIG = {
   Welcome: {
@@ -22,13 +21,13 @@ const ROUTE_CONFIG = {
   Login: {
     screen: Login,
     navigationOptions: {
-      title:"Login"
+      title: "Login"
     }
   },
   Signup: {
     screen: Signup,
     navigationOptions: {
-      title:"Signup"
+      title: "Signup"
     }
   },
   Main: {
@@ -36,18 +35,18 @@ const ROUTE_CONFIG = {
     navigationOptions: nullHeader
   },
   Drawer: {
-    screen: ({ navigation }) => <Drawer rootNavigation={navigation} />,
+    screen: ({ navigation }) => <Drawer rootNavigation={navigation}/>,
     navigationOptions: nullHeader
   }
 };
-const STACK_NAVIGATOR_CONFIG = { 
+const STACK_NAVIGATOR_CONFIG = {
   initialRouteName: "Main",
-  navigationOptions:{
-    headerStyle:styles.bgApp, 
-    headerBackTitleStyle:COLOR.WHITE,
+  navigationOptions: {
+    headerStyle: styles.bgApp,
+    headerBackTitleStyle: COLOR.WHITE,
     headerTintColor: COLOR.WHITE,
-    headerTitleStyle:styles.cWhite
-  } 
+    headerTitleStyle: styles.cWhite
+  }
 };
 
 export default StackNavigator(ROUTE_CONFIG, STACK_NAVIGATOR_CONFIG);

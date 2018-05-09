@@ -8,6 +8,6 @@ export default class Index extends React.PureComponent {
   }
 
   render() {
-    return <StackNavigator ref={reff => setTopLevelNavigator(reff)} />;
+    return <StackNavigator ref={reff => setTopLevelNavigator(reff)}/>;
   }
 }

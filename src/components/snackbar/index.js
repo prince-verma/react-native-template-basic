@@ -1,5 +1,5 @@
 import React, { PureComponent } from "react";
-import { Animated, Dimensions, PanResponder, StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import { Animated, Dimensions, PanResponder, Text, TouchableOpacity, View } from "react-native";
 import Events from "react-native-simple-events";
 
 const width = Dimensions.get("window").width;

@@ -1,7 +1,6 @@
 import React from "react";
-import { View, Text } from "react-native";
+import { Text, View } from "react-native";
 import styles from "../../styles";
-import { getResetAction } from "../../utilities";
 
 export default class Profile extends React.Component {
   goToAboutUS = () => {

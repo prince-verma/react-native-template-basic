@@ -1,17 +1,15 @@
 import React from "react";
-import {
-  Modal,
-  Text,
-  TouchableHighlight,
-  TouchableNativeFeedback,
-  TouchableWithoutFeedback,
-  View,
-  StyleSheet
-} from "react-native";
+import { Modal, StyleSheet, Text, TouchableHighlight, TouchableWithoutFeedback, View } from "react-native";
 import Events from "react-native-simple-events";
 import { height, isFunction, width } from "../../utilities";
 
-const defaultButtons = [{ title: "CANCEL", onPress: () => {} }, { title: "OK", onPress: () => {} }];
+const defaultButtons = [{
+  title: "CANCEL", onPress: () => {
+  }
+}, {
+  title: "OK", onPress: () => {
+  }
+}];
 
 export function Alert(data = {}) {
   let {

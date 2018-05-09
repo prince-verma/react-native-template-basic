@@ -8,11 +8,11 @@ export default class Input extends React.PureComponent {
 
     switch (type) {
       case "email":
-        return <TextInput placeholder={"E-mail address"} {...this.props} keyboardType={"email-address"} />;
+        return <TextInput placeholder={"E-mail address"} {...this.props} keyboardType={"email-address"}/>;
       case "password":
-        return <TextInput placeholder={"Password"} {...this.props} keyboardType={"default"} secureTextEntry />;
+        return <TextInput placeholder={"Password"} {...this.props} keyboardType={"default"} secureTextEntry/>;
       case "number":
-        return <TextInput {...this.props} keyboardType={"numeric"} />;
+        return <TextInput {...this.props} keyboardType={"numeric"}/>;
       default:
       case "text":
         return <TextInput {...this.props} />;

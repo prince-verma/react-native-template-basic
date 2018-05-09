@@ -2,7 +2,6 @@ import React from "react";
 import { Animated, TextInput, View } from "react-native";
 import Error from "./errorView";
 import styles from "./inputStyle";
-import {COLOR} from '../../styles';
 
 export default class Input extends React.PureComponent {
   constructor(props) {

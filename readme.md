@@ -5,10 +5,15 @@ This is basic template provides basic folder-structure of your project and imple
 
 react-native-basic-template is kind of start-kit or seed project to init a new application.
 
+```
+Note:- Also added the dependency of react-native-vector-icons, to provide the Default icons support.
+```
+
 ## Usuage
 
 ```
 react-native init <project-name> --template basic
+react-native link
 ```
 
 This will provide the basic folder structure and some resulable components that you can use in your project.
@@ -17,6 +22,26 @@ This will saves your time by providing some basic implementaion of an react-nati
 It also implements some of basic login, signup, welcome screens, side drawer menu etc components that will fully covers their functionlity.
 
 This also provides some of basic components like:-
+
+### Icon
+```
+Also added the dependency of react-native-vector-icons, to provide the Default icons support.
+```
+
+#### usuage
+
+Just import the Icon compopent and provide type of icon like "MaterialIcons"/"FontAwesome" etc., default type is "MaterialIcons".
+
+For more information about vector icons follow link https://github.com/oblador/react-native-vector-icons.
+
+
+```
+<Icon 
+  type={"MaterialIcons"} 
+  color="white" 
+  size={26} 
+  name={"archive"}/>
+```
 
 ### Input
 
@@ -106,6 +131,8 @@ The folder structure that you will have is :
 │   |        reloadOnAppStateChange.js
 │   |        
 │   |   └─── alertView
+│   |   |       index.js
+│   |   └─── icon
 │   |   |       index.js
 │   |   └─── input
 │   |   |       errorView.js

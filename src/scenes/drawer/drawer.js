@@ -3,8 +3,7 @@ import { DrawerNavigator, StackNavigator } from "react-navigation";
 
 import { width } from "../../utilities";
 import DrawerSideMenu from "./drawerSideMenu";
-import styles,{COLOR} from '../../styles';
-
+import styles, { COLOR } from '../../styles';
 // Routes
 import Profile from "../profile/profile";
 import AboutUs from "../aboutUs/aboutUs";
@@ -30,11 +29,11 @@ const DRAWER_ROUTES = StackNavigator(
   },
   {
     initialRouteName: "Profile",
-    navigationOptions:{
-      headerStyle:styles.bgApp, 
-      headerBackTitleStyle:COLOR.WHITE,
+    navigationOptions: {
+      headerStyle: styles.bgApp,
+      headerBackTitleStyle: COLOR.WHITE,
       headerTintColor: COLOR.WHITE,
-      headerTitleStyle:styles.cWhite
+      headerTitleStyle: styles.cWhite
     }
   }
 );
@@ -51,9 +50,9 @@ export default class MainDrawer extends React.PureComponent {
       },
       {
         drawerWidth: width - 50,
-        contentComponent: props => <DrawerSideMenu props={props} rootNavigation={rootNavigation} />
+        contentComponent: props => <DrawerSideMenu props={props} rootNavigation={rootNavigation}/>
       }
     );
-    return <Drawer />;
+    return <Drawer/>;
   }
 }

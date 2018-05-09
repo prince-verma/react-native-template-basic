@@ -1,5 +1,6 @@
 import React from "react";
 import { Text, TouchableOpacity, View } from "react-native";
+
 import styles from "../../styles";
 
 export default class Welcome extends React.Component {

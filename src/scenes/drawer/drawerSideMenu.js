@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Text, StyleSheet } from "react-native";
+import { StyleSheet, Text, View } from "react-native";
 import Menu from "./drawerMenu";
 import styles from "../../styles/index";
 
@@ -27,8 +27,8 @@ export default class Drawer extends React.PureComponent {
             title={"Profile"}
             navigateTo={"Profile"}
           />
-          <Menu extras={{ ...props, rootNavigation }} icon={"my-location"} title={"About Us"} navigateTo={"AboutUs"} />
-          <Menu extras={{ ...props, rootNavigation }} icon={"power"} title={"Sign out"} navigateTo={"Sign out"} />
+          <Menu extras={{ ...props, rootNavigation }} icon={"my-location"} title={"About Us"} navigateTo={"AboutUs"}/>
+          <Menu extras={{ ...props, rootNavigation }} icon={"power"} title={"Sign out"} navigateTo={"Sign out"}/>
         </View>
       </View>
     );

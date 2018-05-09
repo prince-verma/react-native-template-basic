@@ -1,8 +1,8 @@
 import React from "react";
-import { View, StyleSheet, ActivityIndicator } from "react-native";
+import { ActivityIndicator, StyleSheet } from "react-native";
 
 export default class Loading extends React.PureComponent {
   render() {
-    return <ActivityIndicator style={StyleSheet.absoluteFill} />;
+    return <ActivityIndicator style={StyleSheet.absoluteFill}/>;
   }
 }

@@ -29,6 +29,6 @@ export default class ReloadViewOnAppStateChange extends React.PureComponent {
       return <View style={{ flex: 1 }}>{children}</View>;
     }
 
-    return <View />;
+    return <View/>;
   }
 }

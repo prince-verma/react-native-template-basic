@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Text, TouchableWithoutFeedback, TouchableOpacity, TouchableHighlight, Keyboard } from "react-native";
+import { Keyboard, Text, TouchableOpacity, TouchableWithoutFeedback, View } from "react-native";
 import { getResetAction } from "../../utilities";
 import { Input } from "../../components";
 import styles from "../../styles";
@@ -9,6 +9,7 @@ export default class Login extends React.Component {
     super(props);
     this.state = { email: "", password: "" };
   }
+
   onLogin = () => {
     this.props.navigation.dispatch(getResetAction("Drawer"));
   };
@@ -46,7 +47,8 @@ export default class Login extends React.Component {
           />
 
           <View style={[styles.mv10]}>
-            <TouchableOpacity onPress={() => {}}>
+            <TouchableOpacity onPress={() => {
+            }}>
               <Text style={[styles.cWhite, styles.font16, styles.bold]}>Forgot password?</Text>
             </TouchableOpacity>
           </View>
