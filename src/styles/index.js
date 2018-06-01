@@ -10,8 +10,8 @@ export const COLOR = {
   BLUE: "#2196f3",
   LIGHT_GRAY: "#F1F1F1",
   GRAY: "#9D9D9D",
-  APP: "#39a385",
-  APP_DARK: "#379c80",
+  APP: "#2d2d2d",
+  APP_DARK: "#1d1d1d",
 }
 
 export default StyleSheet.create({
