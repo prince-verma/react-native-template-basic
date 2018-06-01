@@ -382,5 +382,13 @@ export default StyleSheet.create({
     shadowColor: "black",
     shadowOffset: { height: 4, width: 0 },
     shadowOpacity: 0.2
+  },
+
+  // screen's styles
+  loadingContainer: {
+    width: 50, height: 50, borderRadius: 10,
+    backgroundColor: "#FFF",
+    alignItems: "center",
+    justifyContent: "center"
   }
 });
