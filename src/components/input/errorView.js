@@ -1,6 +1,6 @@
-import React from "react";
-import { Text, View } from "react-native";
-import styles from "./inputStyle";
+import React from 'react';
+import { Text, View } from 'react-native';
+import styles from './inputStyle';
 
 export default function Error(props) {
   let { errorMessage, errorTextStyle, errorIcon, errorIconSize, errorIconColor, width } = props;

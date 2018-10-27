@@ -4,9 +4,11 @@ Templates are used to create a project based on some fix architecture.
 This is basic template provides basic folder-structure of your project and implements some reusable components/functions etc.
 
 react-native-basic-template is kind of start-kit or seed project to init a new application.
-
+It has dependency of react-native-vector-icons, to provide the Default icons support.
 ```
-Note:- Also added the dependency of react-native-vector-icons, to provide the Default icons support.
+Note:- implemented react-navigation 2.x.
+has some issues in navigationOptions for drawerNavigator. 
+So, Currently we implemented a work-around solution for drawerNavigator.
 ```
 
 ## Usuage
@@ -36,6 +38,9 @@ For more information about vector icons follow link https://github.com/oblador/r
 
 
 ```
+import { Icon } from '../../components';
+
+
 <Icon 
   type={"MaterialIcons"} 
   color="white" 
@@ -50,6 +55,9 @@ For more information about vector icons follow link https://github.com/oblador/r
 Just import the Input compopent and it will provide basic animated input componnet.
 
 ```
+import { Input } from '../../components';
+
+
 <Input
   type="email"
   borderBottomColor={"#FFF"}
@@ -77,9 +85,9 @@ Just import the Input compopent and it will provide basic animated input componn
 
 ```
 // provide this as last child in your root component. import the snackbar from components.
+import { SnackBar, showSnackBar } from './src/components';
 
 <SnackBar id={"SnackBar_Root_App"} />
-
 
 
 // import showSnackBar function from same file and use it as
@@ -101,9 +109,10 @@ showSnackBar({
 
 ```
 // provide this as last child in your root component. import the Alert from components.
+import { AlertView, Alert } from './src/components';
+
 
 <AlertView id={"Alert_Root_App"} />
-
 
 
 // import Alert function from same file and use it as
@@ -129,7 +138,11 @@ The folder structure that you will have is :
 │   └─── components
 │   |        index.js
 │   |        reloadOnAppStateChange.js
+│   |        loading.js
 │   |        
+│   |   └─── header
+│   |   |       index.js
+│   |   |       navigationHeaders.js
 │   |   └─── alertView
 │   |   |       index.js
 │   |   └─── icon
@@ -144,8 +157,7 @@ The folder structure that you will have is :
 │   |   |   
 │   └─── scenes
 │   |        index.js
-│   |        main.js
-│   |        routes.js
+│   |        authStack.js
 │   |        
 │   |   └─── aboutUs
 │   |   |       aboutUs.js
@@ -162,8 +174,9 @@ The folder structure that you will have is :
 │   └─── styles
 │   |        index.js
 │   └─── utilities
-│   |        index.js
 │   |        api.js
+│   |        constants.js
+│   |        index.js
 │   |        navigationService.js
 │   |        storage.js
 │   |        validations.js

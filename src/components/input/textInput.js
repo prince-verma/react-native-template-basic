@@ -1,7 +1,7 @@
-import React from "react";
-import { Animated, TextInput, View } from "react-native";
-import Error from "./errorView";
-import styles from "./inputStyle";
+import React from 'react';
+import { Animated, TextInput, View } from 'react-native';
+import Error from './errorView';
+import styles from './inputStyle';
 
 export default class Input extends React.PureComponent {
   constructor(props) {
@@ -12,8 +12,8 @@ export default class Input extends React.PureComponent {
       height: 50,
       borderBottomHeight: 1,
       animatedBorderHeight: 2,
-      borderBottomColor: "#000",
-      animatedBorderColor: "#000",
+      borderBottomColor: '#000',
+      animatedBorderColor: '#000',
       animationTime: 200,
       value: new Animated.Value(0)
     };
@@ -29,7 +29,7 @@ export default class Input extends React.PureComponent {
 
     this.setState({ initialWidth: 1 });
     this.state.value.setValue(0.0001);
-    this.setState({ borderBottomColor: borderBottomColor || "#000" });
+    this.setState({ borderBottomColor: borderBottomColor || '#000' });
 
     Animated.timing(this.state.value, {
       toValue: width,
@@ -50,7 +50,7 @@ export default class Input extends React.PureComponent {
     }).start();
     setTimeout(() => {
       this.setState({
-        borderBottomColor: borderBottomColor || "#000",
+        borderBottomColor: borderBottomColor || '#000',
         initialWidth: 0
       });
     }, this.state.animationTime);
@@ -75,7 +75,7 @@ export default class Input extends React.PureComponent {
       errorIconColor,
       ...otherProps
     } = this.props;
-    errorMessage = errorMessage ? errorMessage : "";
+    errorMessage = errorMessage ? errorMessage : '';
     inputStyle = inputStyle ? inputStyle : {};
     width = width || this.state.width;
     height = height || this.state.height;
@@ -84,14 +84,14 @@ export default class Input extends React.PureComponent {
     animatedBorderHeight = animatedBorderHeight || this.state.animatedBorderHeight;
     animatedBorderColor = animatedBorderColor || borderBottomColor || this.state.animatedBorderColor;
 
-    borderBottomColor = errorMessage ? "#D50000" : borderBottomColor;
-    animatedBorderColor = errorMessage ? "#D50000" : animatedBorderColor;
+    borderBottomColor = errorMessage ? '#D50000' : borderBottomColor;
+    animatedBorderColor = errorMessage ? '#D50000' : animatedBorderColor;
 
     return (
-      <View style={{ alignItems: "center" }}>
-        <View style={{ alignItems: "center" }}>
+      <View style={{ alignItems: 'center' }}>
+        <View style={{ alignItems: 'center' }}>
           <TextInput
-            underlineColorAndroid={"transparent"}
+            underlineColorAndroid={'transparent'}
             style={[{ width, height }, styles.textInput, inputStyle]}
             {...otherProps}
             onFocus={this._onFocus}
@@ -103,7 +103,7 @@ export default class Input extends React.PureComponent {
               width,
               height: borderBottomHeight,
               backgroundColor: borderBottomColor,
-              position: "absolute",
+              position: 'absolute',
               bottom: 8
             }}
           />
@@ -111,7 +111,7 @@ export default class Input extends React.PureComponent {
             style={{
               width: this.state.initialWidth,
               height: animatedBorderHeight,
-              position: "absolute",
+              position: 'absolute',
               bottom: 8,
               backgroundColor: animatedBorderColor,
               transform: [{ scaleX: this.state.value }]

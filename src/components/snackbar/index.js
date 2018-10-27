@@ -1,25 +1,25 @@
-import React, { PureComponent } from "react";
-import { Animated, Dimensions, PanResponder, Text, TouchableOpacity, View } from "react-native";
-import Events from "react-native-simple-events";
+import React, { PureComponent } from 'react';
+import { Animated, Dimensions, PanResponder, Text, TouchableOpacity, View } from 'react-native';
+import Events from 'react-native-simple-events';
 
-const width = Dimensions.get("window").width;
+const width = Dimensions.get('window').width;
 
 export const showSnackBar = (data = {}) => {
   let {
-    message = "Your custom message",
-    textColor = "#FFF",
-    position = "bottom",
-    confirmText = "",
-    buttonColor = "#03a9f4",
+    message = 'Your custom message',
+    textColor = '#FFF',
+    position = 'bottom',
+    confirmText = '',
+    buttonColor = '#03a9f4',
     duration = 4000,
     animationTime = 250,
-    backgroundColor = "#323232",
+    backgroundColor = '#323232',
     onConfirm = () => {
     },
     ...otherProps
   } = data;
 
-  Events.trigger("showSnackBar", {
+  Events.trigger('showSnackBar', {
     message,
     textColor, // message text color
     position, // enum(top/bottom).
@@ -33,23 +33,22 @@ export const showSnackBar = (data = {}) => {
   });
 };
 
-export default class SnackBar extends PureComponent {
+export class SnackBar extends PureComponent {
   constructor(props) {
     super(props);
 
     this.state = {
-      message: "Had a snack at snackBar.",
+      message: 'Had a snack at snackBar.',
       confirmText: null,
       onConfirm: null,
-      position: "bottom",
+      position: 'bottom',
       show: false,
       duration: 5000,
       animationTime: 250,
       maxHeight: 48,
-      maxHeight: 48,
-      textColor: "#FFF",
-      buttonColor: "#03a9f4",
-      backgroundColor: "#323232",
+      textColor: '#FFF',
+      buttonColor: '#03a9f4',
+      backgroundColor: '#323232',
 
       top: new Animated.Value(-48),
       bottom: new Animated.Value(-48),
@@ -58,7 +57,7 @@ export default class SnackBar extends PureComponent {
     };
 
     this._animatedValueX = 0;
-    this.state.pan.x.addListener(data => ( this._animatedValueX = data.value ));
+    this.state.pan.x.addListener(data => (this._animatedValueX = data.value));
 
     this.panResponder = PanResponder.create({
       onStartShouldSetPanResponder: () => true,
@@ -80,13 +79,13 @@ export default class SnackBar extends PureComponent {
   componentDidMount() {
     const { id = null } = this.props;
 
-    Events.on("showSnackBar", id ? id : "123456789", this.onRequest);
+    Events.on('showSnackBar', id ? id : '123456789', this.onRequest);
   }
 
   componentWillUnmount() {
     const { id = null } = this.props;
 
-    Events.remove("showSnackBar", id ? id : "123456789");
+    Events.remove('showSnackBar', id ? id : '123456789');
     this.timeout && clearTimeout(this.timeout);
   }
 
@@ -95,7 +94,7 @@ export default class SnackBar extends PureComponent {
       message,
       confirmText,
       onConfirm,
-      position = "bottom",
+      position = 'bottom',
       height = 48,
       duration = 4000,
       animationTime = 250,
@@ -122,7 +121,7 @@ export default class SnackBar extends PureComponent {
         () => {
           this.setPanValueToZero();
 
-          position === "top" &&
+          position === 'top' &&
           Animated.sequence([
             Animated.timing(this.state.top, {
               toValue: 0,
@@ -135,7 +134,7 @@ export default class SnackBar extends PureComponent {
             })
           ]).start();
 
-          position === "bottom" &&
+          position === 'bottom' &&
           Animated.sequence([
             Animated.timing(this.state.bottom, {
               toValue: 0,
@@ -164,7 +163,7 @@ export default class SnackBar extends PureComponent {
 
   hideSnackBar = () => {
     let { top, bottom, position, maxHeight, animationTime } = this.state;
-    position === "top" &&
+    position === 'top' &&
     Animated.sequence([
       Animated.timing(this.state.top, {
         toValue: -1 * maxHeight,
@@ -175,7 +174,7 @@ export default class SnackBar extends PureComponent {
       this.setState({ show: false });
     });
 
-    position === "bottom" &&
+    position === 'bottom' &&
     Animated.sequence([
       Animated.timing(this.state.bottom, {
         toValue: -1 * maxHeight,
@@ -212,35 +211,35 @@ export default class SnackBar extends PureComponent {
       }
     } = this.state;
 
-    animatedOpacity = this.state.pan.x.interpolate({
+    let animatedOpacity = this.state.pan.x.interpolate({
       inputRange: [-1 * width / 2, 0, width / 2],
       outputRange: [0, 1, 0]
     });
 
     let snackbarStyle = [
       {
-        position: "absolute",
-        flexDirection: "row",
+        position: 'absolute',
+        flexDirection: 'row',
         minHeight: maxHeight,
         maxHeight: 80,
         width,
         backgroundColor: backgroundColor,
         paddingHorizontal: 24,
         shadowRadius: 2,
-        shadowColor: "black",
+        shadowColor: 'black',
         shadowOffset: { height: 3, width: 1 },
         shadowOpacity: 0.4,
         elevation: 24,
         opacity: animatedOpacity
       },
       this.state.pan.getLayout(),
-      position === "top" && { top: top },
-      position === "bottom" && { bottom: bottom }
+      position === 'top' && { top: top },
+      position === 'bottom' && { bottom: bottom }
     ];
     let buttonTextStyle = [
       {
         color: buttonColor,
-        textAlign: "left",
+        textAlign: 'left',
         fontSize: 14
       }
     ];
@@ -255,7 +254,7 @@ export default class SnackBar extends PureComponent {
           }}
           {...this.panResponder.panHandlers}
         >
-          <View style={[{ flex: 10, paddingVertical: 14, justifyContent: "center" }]}>
+          <View style={[{ flex: 10, paddingVertical: 14, justifyContent: 'center' }]}>
             <Text ellipsizeMode="tail" numberOfLines={2} style={messageTextStyle}>
               {message}
             </Text>
@@ -275,8 +274,8 @@ export default class SnackBar extends PureComponent {
                 <View
                   style={{
                     flex: 1,
-                    alignItems: "center",
-                    justifyContent: "center"
+                    alignItems: 'center',
+                    justifyContent: 'center'
                   }}
                 >
                   <Text style={buttonTextStyle}>{confirmText.toUpperCase()}</Text>
@@ -287,7 +286,7 @@ export default class SnackBar extends PureComponent {
         </Animated.View>
       );
     } else {
-      return <View/>;
+      return <View />;
     }
   }
 }

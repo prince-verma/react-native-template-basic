@@ -1,26 +1,9 @@
-import { NavigationActions } from "react-navigation";
+import React from 'react';
+import { StackActions, NavigationActions, createStackNavigator } from 'react-navigation';
+import { BackIcon, MenuIcon } from '../components/header';
+import styles, { COLOR } from '../styles';
 
-let _navigator;
-
-export function setTopLevelNavigator(navigatorRef) {
-  _navigator = navigatorRef;
-}
-
-export function navigate(routeName, params) {
-  _navigator.dispatch(
-    NavigationActions.navigate({
-      type: NavigationActions.NAVIGATE,
-      routeName,
-      params
-    })
-  );
-}
-
-export function dispatch(action) {
-  _navigator.dispatch(action);
-}
-
-export function getResetAction(routeNames, index = 0) {
+export function getStackResetAction(routeNames, index = 0) {
   const actionJson = { index };
 
   if (Array.isArray(routeNames)) {
@@ -28,5 +11,20 @@ export function getResetAction(routeNames, index = 0) {
   } else {
     actionJson.actions = [NavigationActions.navigate({ routeName: routeNames })];
   }
-  return NavigationActions.reset(actionJson);
+  return StackActions.reset(actionJson);
 }
+
+export const customNavOptions = (title, isMenuIcon) => ({ navigation }) => {
+  return {
+    title,
+    headerLeft: isMenuIcon ? <MenuIcon navigation={navigation} /> : <BackIcon navigation={navigation} />,
+    headerStyle: styles.bgApp,
+    headerBackTitleStyle: COLOR.WHITE,
+    headerTintColor: COLOR.WHITE,
+    headerTitleStyle: styles.cWhite
+  };
+};
+
+export const containerStackNavigator = (screen, title = '', isMenuIcon = true,) => {
+  return createStackNavigator({ title: screen }, { navigationOptions: customNavOptions(title, isMenuIcon) });
+};

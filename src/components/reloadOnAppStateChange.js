@@ -1,5 +1,5 @@
-import React from "react";
-import { AppState, View } from "react-native";
+import React from 'react';
+import { AppState, View } from 'react-native';
 
 export default class ReloadViewOnAppStateChange extends React.PureComponent {
   constructor(p) {
@@ -11,15 +11,15 @@ export default class ReloadViewOnAppStateChange extends React.PureComponent {
   }
 
   componentDidMount() {
-    AppState.addEventListener("change", this.handleAppStateChange);
+    AppState.addEventListener('change', this.handleAppStateChange);
   }
 
   componentWillUnmount() {
-    AppState.removeEventListener("change", this.handleAppStateChange);
+    AppState.removeEventListener('change', this.handleAppStateChange);
   }
 
   handleAppStateChange = nextAppState => {
-    this.setState({ reload: nextAppState === "active" });
+    this.setState({ reload: nextAppState === 'active' });
   };
 
   render() {
@@ -29,6 +29,6 @@ export default class ReloadViewOnAppStateChange extends React.PureComponent {
       return <View style={{ flex: 1 }}>{children}</View>;
     }
 
-    return <View/>;
+    return <View />;
   }
 }

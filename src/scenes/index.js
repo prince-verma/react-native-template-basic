@@ -1,13 +1,16 @@
-import React from "react";
-import StackNavigator from "./routes";
-import { setTopLevelNavigator } from "../utilities";
+import React from 'react';
+import { createSwitchNavigator } from 'react-navigation';
 
-export default class Index extends React.PureComponent {
-  constructor(props) {
-    super(props);
-  }
+import AuthStack from './authStack';
+import AuthLoading from './authLoading';
+import App from './drawer/drawer';
 
-  render() {
-    return <StackNavigator ref={reff => setTopLevelNavigator(reff)}/>;
-  }
-}
+import { APP_STACK, AUTH_LOADING, AUTH_STACK } from '../utilities';
+
+export default createSwitchNavigator({
+  [AUTH_LOADING]: AuthLoading,
+  [APP_STACK]: App,
+  [AUTH_STACK]: AuthStack
+}, {
+  initialRouteName: AUTH_LOADING,
+});

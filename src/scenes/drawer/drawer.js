@@ -1,69 +1,25 @@
-import React from "react";
-import { DrawerNavigator, StackNavigator } from "react-navigation";
-import { TouchableOpacity } from 'react-native';
+import React from 'react';
+import { createDrawerNavigator } from 'react-navigation';
 
-import { Icon } from '../../components';
-import DrawerSideMenu from "./drawerSideMenu";
-import { width } from "../../utilities";
-import styles, { COLOR } from '../../styles';
-// Routes
-import Profile from "../profile/profile";
-import AboutUs from "../aboutUs/aboutUs";
+import DrawerSideMenu from './drawerSideMenu';
+import { ABOUT_US, PROFILE, width, containerStackNavigator } from '../../utilities';
 
-const MenuIcon = ({ navigation }) => {
-  return (
-    <TouchableOpacity style={[styles.ph16, styles.pv5]} onPress={() => {
-      navigation.navigate("DrawerOpen");
-    }}>
-      <Icon name="menu" color={COLOR.WHITE} size={30}/>
-    </TouchableOpacity>
-  )
+import Profile from '../profile/profile';
+import AboutUs from '../aboutUs/aboutUs';
+
+
+const DRAWER_ROUTES = {
+  [PROFILE]: {
+    screen: containerStackNavigator(Profile, 'Profile'),
+  },
+  [ABOUT_US]: {
+    screen: containerStackNavigator(AboutUs, 'About Us'),
+  }
+};
+const DRAWER_ROUTES_CONFIG = {
+  initialRouteName: PROFILE,
+  drawerWidth: width - 50,
+  contentComponent: props => <DrawerSideMenu {...props} />
 };
 
-const DRAWER_ROUTES = StackNavigator(
-  {
-    Profile: {
-      screen: Profile,
-      navigationOptions: ({ navigation }) => {
-        return {
-          title: "Profile",
-          headerLeft: <MenuIcon navigation={navigation}/>
-        };
-      }
-    },
-    AboutUs: {
-      screen: AboutUs,
-      navigationOptions: {
-        title: "About Us"
-      }
-    }
-  },
-  {
-    initialRouteName: "Profile",
-    navigationOptions: {
-      headerStyle: styles.bgApp,
-      headerBackTitleStyle: COLOR.WHITE,
-      headerTintColor: COLOR.WHITE,
-      headerTitleStyle: styles.cWhite
-    }
-  }
-);
-
-export default class MainDrawer extends React.PureComponent {
-  render() {
-    const { rootNavigation } = this.props;
-
-    const Drawer = DrawerNavigator(
-      {
-        drawerNavigatorWrapper: {
-          screen: DRAWER_ROUTES
-        }
-      },
-      {
-        drawerWidth: width - 50,
-        contentComponent: props => <DrawerSideMenu props={props} rootNavigation={rootNavigation}/>
-      }
-    );
-    return <Drawer/>;
-  }
-}
+export default createDrawerNavigator(DRAWER_ROUTES, DRAWER_ROUTES_CONFIG);

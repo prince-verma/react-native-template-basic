@@ -1,34 +1,34 @@
-import React from "react";
-import { Modal, StyleSheet, Text, TouchableHighlight, TouchableWithoutFeedback, View } from "react-native";
-import Events from "react-native-simple-events";
-import { height, isFunction, width } from "../../utilities";
+import React from 'react';
+import { Modal, StyleSheet, Text, TouchableHighlight, TouchableWithoutFeedback, View } from 'react-native';
+import Events from 'react-native-simple-events';
+import { height, isFunction, width } from '../../utilities';
 
 const defaultButtons = [{
-  title: "CANCEL", onPress: () => {
+  title: 'CANCEL', onPress: () => {
   }
 }, {
-  title: "OK", onPress: () => {
+  title: 'OK', onPress: () => {
   }
 }];
 
 export function Alert(data = {}) {
   let {
-    title = "Alert-Title",
-    message = "Your custom message will appear here.",
+    title = 'Alert-Title',
+    message = 'Your custom message will appear here.',
     buttons = defaultButtons,
     ...otherProps
   } = data;
 
-  Events.trigger("showAlert", { message, title, buttons, ...otherProps });
+  Events.trigger('showAlert', { message, title, buttons, ...otherProps });
 }
 
-export default class AlertView extends React.Component {
+export class AlertView extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       closeOnTouchOutside: props.closeOnTouchOutside,
-      title: "Alert",
-      message: "Your custom message",
+      title: 'Alert',
+      message: 'Your custom message',
       buttons: defaultButtons,
       show: false
     };
@@ -36,12 +36,12 @@ export default class AlertView extends React.Component {
 
   componentDidMount() {
     let { id = null } = this.props;
-    Events.on("showAlert", id ? id : "123456789", this.onRequest);
+    Events.on('showAlert', id ? id : '123456789', this.onRequest);
   }
 
   componentWillUnmount() {
     let { id = null } = this.props;
-    Events.remove("showAlert", id ? id : "123456789");
+    Events.remove('showAlert', id ? id : '123456789');
   }
 
   onRequest = options => {
@@ -61,7 +61,7 @@ export default class AlertView extends React.Component {
     const { title, message, buttons, show, closeOnTouchOutside = false } = this.state;
 
     return (
-      <Modal transparent visible={show} animationType={animationType || "fade"} onRequestClose={this.closeModal}>
+      <Modal transparent visible={show} animationType={animationType || 'fade'} onRequestClose={this.closeModal}>
         <TouchableWithoutFeedback
           onPress={() => {
             closeOnTouchOutside && this.closeModal();
@@ -87,7 +87,7 @@ export default class AlertView extends React.Component {
                   <TouchableHighlight
                     key={index}
                     style={styles.buttonStyle}
-                    underlayColor={"#e6e6e6"}
+                    underlayColor={'#e6e6e6'}
                     onPress={() => {
                       this.closeModal();
                       isFunction(button.onPress) && button.onPress();
@@ -111,9 +111,9 @@ const styles = StyleSheet.create({
   container: {
     width,
     height,
-    justifyContent: "center",
-    alignItems: "center",
-    backgroundColor: "transparent"
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: 'transparent'
   },
   alertBoxContainer: {
     elevation: 24,
@@ -122,20 +122,20 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.3,
     padding: 0,
     marginHorizontal: 40,
-    backgroundColor: "#FFFFFF"
+    backgroundColor: '#FFFFFF'
   },
   title: {
-    color: "#1f1f1f",
+    color: '#1f1f1f',
     fontSize: 20
   },
   message: {
-    color: "#9b9b9b",
+    color: '#9b9b9b',
     fontSize: 16,
     lineHeight: 24
   },
   buttonsContainer: {
-    flexDirection: "row",
-    justifyContent: "flex-end",
+    flexDirection: 'row',
+    justifyContent: 'flex-end',
     height: 52,
     paddingVertical: 8,
     marginLeft: 24,
@@ -145,12 +145,12 @@ const styles = StyleSheet.create({
     height: 36,
     minWidth: 64,
     paddingHorizontal: 8,
-    justifyContent: "center",
+    justifyContent: 'center',
     marginRight: 8,
-    alignItems: "center"
+    alignItems: 'center'
   },
   buttonText: {
-    color: "#03a9f4",
+    color: '#03a9f4',
     fontSize: 14
   }
 });

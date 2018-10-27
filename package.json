@@ -1,4 +1,15 @@
 {
   "name": "react-native-template-basic",
-  "version": "0.0.68"
+  "version": "0.1.0",
+  "description": "Templates are used to create a project based on some fix architecture. This is basic template provides basic folder-structure of your project and implements some reusable components/functions etc.",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/prince-verma/react-native-template-basic.git"
+  },
+  "author": "“Prince Verma",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/prince-verma/react-native-template-basic/issues"
+  },
+  "homepage": "https://github.com/prince-verma/react-native-template-basic#readme"
 }

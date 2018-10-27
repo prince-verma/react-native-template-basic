@@ -1,4 +1,4 @@
-import { AsyncStorage } from "react-native";
+import { AsyncStorage } from 'react-native';
 
 export async function set(key, object) {
   return AsyncStorage.setItem(key, getString(object));
@@ -48,7 +48,7 @@ export function getJSONObject(str) {
 
 export function getString(data) {
   try {
-    if (typeof data === "string") {
+    if (typeof data === 'string') {
       return data;
     }
     return JSON.stringify(data);
