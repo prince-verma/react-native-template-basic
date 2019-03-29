@@ -1,11 +1,18 @@
 import React, { PureComponent } from 'react';
-import { Animated, Dimensions, PanResponder, Text, TouchableOpacity, View } from 'react-native';
+import {
+  Animated,
+  Dimensions,
+  PanResponder,
+  Text,
+  TouchableOpacity,
+  View,
+} from 'react-native';
 import Events from 'react-native-simple-events';
 
-const width = Dimensions.get('window').width;
+const { width } = Dimensions.get('window');
 
 export const showSnackBar = (data = {}) => {
-  let {
+  const {
     message = 'Your custom message',
     textColor = '#FFF',
     position = 'bottom',
@@ -27,9 +34,9 @@ export const showSnackBar = (data = {}) => {
     buttonColor, // default button text color
     duration, // (in ms), duartion for which snackbar is visible.
     animationTime, // time duration in which snackbar will complete its open/close animation.
-    backgroundColor, //background color for snackbar
+    backgroundColor, // background color for snackbar
     onConfirm, //  perform some task here on snackbar button press.
-    ...otherProps
+    ...otherProps,
   });
 };
 
@@ -43,7 +50,6 @@ export class SnackBar extends PureComponent {
       onConfirm: null,
       position: 'bottom',
       show: false,
-      duration: 5000,
       animationTime: 250,
       maxHeight: 48,
       textColor: '#FFF',
@@ -53,24 +59,28 @@ export class SnackBar extends PureComponent {
       top: new Animated.Value(-48),
       bottom: new Animated.Value(-48),
 
-      pan: new Animated.ValueXY()
+      pan: new Animated.ValueXY(),
     };
 
-    this._animatedValueX = 0;
-    this.state.pan.x.addListener(data => (this._animatedValueX = data.value));
+    this.animatedValueX = 0;
+    const { pan } = this.state;
+    pan.x.addListener((data) => {
+      this.animatedValueX = data.value;
+      return this.animatedValueX;
+    });
 
     this.panResponder = PanResponder.create({
       onStartShouldSetPanResponder: () => true,
       onMoveShouldSetPanResponder: () => false,
       onStartShouldSetPanResponderCapture: () => false,
       onMoveShouldSetPanResponderCapture: () => false,
-      onPanResponderGrant: (evt, gestureState) => {
-        this.state.pan.setOffset({ x: this._animatedValueX });
-        this.state.pan.setValue({ x: 0 });
+      onPanResponderGrant: () => {
+        pan.setOffset({ x: this.animatedValueX });
+        pan.setValue({ x: 0 });
       },
-      onPanResponderMove: Animated.event([null, { dx: this.state.pan.x }]),
+      onPanResponderMove: Animated.event([null, { dx: pan.x }]),
       onPanResponderRelease: this.handlePanResponderRelease,
-      onPanResponderTerminate: this.handlePanResponderRelease
+      onPanResponderTerminate: this.handlePanResponderRelease,
     });
 
     this.timeout = undefined;
@@ -79,18 +89,20 @@ export class SnackBar extends PureComponent {
   componentDidMount() {
     const { id = null } = this.props;
 
-    Events.on('showSnackBar', id ? id : '123456789', this.onRequest);
+    Events.on('showSnackBar', id || '123456789', this.onRequest);
   }
 
   componentWillUnmount() {
     const { id = null } = this.props;
 
-    Events.remove('showSnackBar', id ? id : '123456789');
-    this.timeout && clearTimeout(this.timeout);
+    Events.remove('showSnackBar', id || '123456789');
+    if (this.timeout) {
+      clearTimeout(this.timeout);
+    }
   }
 
-  onRequest = options => {
-    let {
+  onRequest = (options) => {
+    const {
       message,
       confirmText,
       onConfirm,
@@ -103,7 +115,9 @@ export class SnackBar extends PureComponent {
     } = options;
 
     if (message) {
-      this.timeout && clearTimeout(this.timeout);
+      if (this.timeout) {
+        clearTimeout(this.timeout);
+      }
 
       this.setState(
         {
@@ -111,47 +125,47 @@ export class SnackBar extends PureComponent {
           confirmText,
           onConfirm,
           position,
-          height,
-          duration,
           show,
           ...otherOptions,
           top: new Animated.Value(-1 * height),
-          bottom: new Animated.Value(-1 * height)
+          bottom: new Animated.Value(-1 * height),
         },
         () => {
           this.setPanValueToZero();
 
-          position === 'top' &&
-          Animated.sequence([
-            Animated.timing(this.state.top, {
-              toValue: 0,
-              duration: animationTime
-            }),
-            Animated.delay(duration),
-            Animated.timing(this.state.top, {
-              toValue: -1 * height,
-              duration: animationTime
-            })
-          ]).start();
+          if (position === 'top') {
+            Animated.sequence([
+              Animated.timing(this.state.top, {
+                toValue: 0,
+                duration: animationTime,
+              }),
+              Animated.delay(duration),
+              Animated.timing(this.state.top, {
+                toValue: -1 * height,
+                duration: animationTime,
+              }),
+            ]).start();
+          }
 
-          position === 'bottom' &&
-          Animated.sequence([
-            Animated.timing(this.state.bottom, {
-              toValue: 0,
-              duration: animationTime
-            }),
-            Animated.delay(duration),
-            Animated.timing(this.state.bottom, {
-              toValue: -1 * height,
-              duration: animationTime
-            })
-          ]).start();
+          if (position === 'bottom') {
+            Animated.sequence([
+              Animated.timing(this.state.bottom, {
+                toValue: 0,
+                duration: animationTime,
+              }),
+              Animated.delay(duration),
+              Animated.timing(this.state.bottom, {
+                toValue: -1 * height,
+                duration: animationTime,
+              }),
+            ]).start();
+          }
 
           this.timeout = setTimeout(() => {
             this.setPanValueToZero();
             this.setState({ show: false });
           }, duration + 2 * animationTime);
-        }
+        },
       );
     }
   };
@@ -162,41 +176,42 @@ export class SnackBar extends PureComponent {
   };
 
   hideSnackBar = () => {
-    let { top, bottom, position, maxHeight, animationTime } = this.state;
-    position === 'top' &&
-    Animated.sequence([
-      Animated.timing(this.state.top, {
-        toValue: -1 * maxHeight,
-        duration: animationTime
-      })
-    ]).start(() => {
-      this.setPanValueToZero();
-      this.setState({ show: false });
-    });
+    const { position, maxHeight, animationTime } = this.state;
+    if (position === 'top') {
+      Animated.sequence([
+        Animated.timing(this.state.top, {
+          toValue: -1 * maxHeight,
+          duration: animationTime,
+        }),
+      ]).start(() => {
+        this.setPanValueToZero();
+        this.setState({ show: false });
+      });
+    }
 
-    position === 'bottom' &&
-    Animated.sequence([
-      Animated.timing(this.state.bottom, {
-        toValue: -1 * maxHeight,
-        duration: animationTime
-      })
-    ]).start(() => {
-      this.setPanValueToZero();
-      this.setState({ show: false });
-    });
+    if (position === 'bottom') {
+      Animated.sequence([
+        Animated.timing(this.state.bottom, {
+          toValue: -1 * maxHeight,
+          duration: animationTime,
+        }),
+      ]).start(() => {
+        this.setPanValueToZero();
+        this.setState({ show: false });
+      });
+    }
   };
 
-  handlePanResponderRelease = (e, gestureState) => {
-    const x = this._animatedValueX;
+  handlePanResponderRelease = () => {
+    const x = this.animatedValueX;
 
-    if (x > width / 2 || x < -1 * width / 2) {
-    } else {
+    if (!(x > width / 2 || x < -1 * width / 2)) {
       Animated.spring(this.state.pan, { toValue: { x: 0, y: 0 } }).start();
     }
   };
 
   render() {
-    let {
+    const {
       maxHeight,
       show,
       message,
@@ -207,49 +222,49 @@ export class SnackBar extends PureComponent {
       textColor,
       buttonColor,
       backgroundColor,
-      onConfirm = () => {
-      }
+      onConfirm = () => {},
+      pan,
     } = this.state;
 
-    let animatedOpacity = this.state.pan.x.interpolate({
+    const animatedOpacity = pan.x.interpolate({
       inputRange: [-1 * width / 2, 0, width / 2],
-      outputRange: [0, 1, 0]
+      outputRange: [0, 1, 0],
     });
 
-    let snackbarStyle = [
+    const snackbarStyle = [
       {
         position: 'absolute',
         flexDirection: 'row',
         minHeight: maxHeight,
         maxHeight: 80,
         width,
-        backgroundColor: backgroundColor,
+        backgroundColor,
         paddingHorizontal: 24,
         shadowRadius: 2,
         shadowColor: 'black',
         shadowOffset: { height: 3, width: 1 },
         shadowOpacity: 0.4,
         elevation: 24,
-        opacity: animatedOpacity
+        opacity: animatedOpacity,
       },
-      this.state.pan.getLayout(),
-      position === 'top' && { top: top },
-      position === 'bottom' && { bottom: bottom }
+      pan.getLayout(),
+      position === 'top' && { top },
+      position === 'bottom' && { bottom },
     ];
-    let buttonTextStyle = [
+    const buttonTextStyle = [
       {
         color: buttonColor,
         textAlign: 'left',
-        fontSize: 14
-      }
+        fontSize: 14,
+      },
     ];
-    let messageTextStyle = [{ color: textColor, fontSize: 14 }];
+    const messageTextStyle = [{ color: textColor, fontSize: 14 }];
 
     if (show) {
       return (
         <Animated.View
           style={snackbarStyle}
-          ref={snackBar => {
+          ref={(snackBar) => {
             this.snackBar = snackBar;
           }}
           {...this.panResponder.panHandlers}
@@ -266,7 +281,9 @@ export class SnackBar extends PureComponent {
               <TouchableOpacity
                 activeOpacity={0.7}
                 onPress={() => {
-                  onConfirm && onConfirm();
+                  if (onConfirm) {
+                    onConfirm();
+                  }
                   this.hideSnackBar();
                 }}
                 style={{ flex: 1 }}
@@ -275,7 +292,7 @@ export class SnackBar extends PureComponent {
                   style={{
                     flex: 1,
                     alignItems: 'center',
-                    justifyContent: 'center'
+                    justifyContent: 'center',
                   }}
                 >
                   <Text style={buttonTextStyle}>{confirmText.toUpperCase()}</Text>
@@ -285,8 +302,7 @@ export class SnackBar extends PureComponent {
           ) : null}
         </Animated.View>
       );
-    } else {
-      return <View />;
     }
+    return null;
   }
 }
