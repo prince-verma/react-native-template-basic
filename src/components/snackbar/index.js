@@ -231,6 +231,8 @@ export class SnackBar extends PureComponent {
       outputRange: [0, 1, 0],
     });
 
+    const { left } = pan.getLayout();
+
     const snackbarStyle = [
       {
         position: 'absolute',
@@ -246,8 +248,8 @@ export class SnackBar extends PureComponent {
         shadowOpacity: 0.4,
         elevation: 24,
         opacity: animatedOpacity,
+        left,
       },
-      pan.getLayout(),
       position === 'top' && { top },
       position === 'bottom' && { bottom },
     ];
@@ -264,9 +266,6 @@ export class SnackBar extends PureComponent {
       return (
         <Animated.View
           style={snackbarStyle}
-          ref={(snackBar) => {
-            this.snackBar = snackBar;
-          }}
           {...this.panResponder.panHandlers}
         >
           <View style={[{ flex: 10, paddingVertical: 14, justifyContent: 'center' }]}>
