@@ -205,7 +205,10 @@ export class SnackBar extends PureComponent {
   handlePanResponderRelease = () => {
     const x = this.animatedValueX;
 
-    if (!(x > width / 2 || x < -1 * width / 2)) {
+    if (x > width / 2 || x < -1 * width / 2) {
+      this.setPanValueToZero();
+      this.setState({ show: false });
+    } else {
       Animated.spring(this.state.pan, { toValue: { x: 0, y: 0 } }).start();
     }
   };
@@ -222,7 +225,8 @@ export class SnackBar extends PureComponent {
       textColor,
       buttonColor,
       backgroundColor,
-      onConfirm = () => {},
+      onConfirm = () => {
+      },
       pan,
     } = this.state;
 
