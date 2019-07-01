@@ -1,27 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="881d852e-daba-4493-a61a-21f2864aa021" name="Default Changelist" comment="updated rn-snackbar.">
-      <change afterPath="$PROJECT_DIR$/src/constants/index.js" afterDir="false" />
+    <list default="true" id="881d852e-daba-4493-a61a-21f2864aa021" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config.js" beforeDir="false" afterPath="$PROJECT_DIR$/config.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dependencies.json" beforeDir="false" afterPath="$PROJECT_DIR$/dependencies.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/readme.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/snackbar/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/snackbar/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/scenes/authLoading.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/scenes/authLoading.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/scenes/authStack.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/scenes/authStack.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/scenes/drawer/drawer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/scenes/drawer/drawer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/scenes/drawer/drawerMenu.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/scenes/drawer/drawerMenu.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/scenes/drawer/drawerSideMenu.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/scenes/drawer/drawerSideMenu.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/scenes/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/scenes/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/scenes/login/login.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/scenes/login/login.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/scenes/profile/profile.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/scenes/profile/profile.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/scenes/signup/signup.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/scenes/signup/signup.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/scenes/welcome/welcome.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/scenes/welcome/welcome.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utilities/constants.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/constants/screenNameConstants.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utilities/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utilities/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utilities/navigationService.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utilities/navigationService.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -62,6 +44,15 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/package.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="34">
+              <caret line="2" column="19" selection-start-line="2" selection-start-column="19" selection-end-line="2" selection-end-column="19" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/scenes/drawer/drawer.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="459">
@@ -120,7 +111,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/package.json" />
         <option value="$PROJECT_DIR$/src/components/snackbar/index.js" />
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/dependencies.json" />
@@ -129,6 +119,7 @@
         <option value="$PROJECT_DIR$/config.js" />
         <option value="$PROJECT_DIR$/src/scenes/authStack.js" />
         <option value="$PROJECT_DIR$/src/scenes/drawer/drawer.js" />
+        <option value="$PROJECT_DIR$/package.json" />
       </list>
     </option>
   </component>
@@ -151,29 +142,6 @@
             <path>
               <item name="react-native-template-basic" type="b2602c69:ProjectViewProjectNode" />
               <item name="react-native-template-basic" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="react-native-template-basic" type="b2602c69:ProjectViewProjectNode" />
-              <item name="react-native-template-basic" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="react-native-template-basic" type="b2602c69:ProjectViewProjectNode" />
-              <item name="react-native-template-basic" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="constants" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="react-native-template-basic" type="b2602c69:ProjectViewProjectNode" />
-              <item name="react-native-template-basic" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="scenes" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="react-native-template-basic" type="b2602c69:ProjectViewProjectNode" />
-              <item name="react-native-template-basic" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="utilities" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -227,7 +195,7 @@
       <workItem from="1554113512098" duration="238000" />
       <workItem from="1561965659393" duration="105000" />
       <workItem from="1561982511467" duration="133000" />
-      <workItem from="1561985814820" duration="1730000" />
+      <workItem from="1561985814820" duration="1768000" />
     </task>
     <task id="LOCAL-00001" summary="updated snackbar.">
       <created>1553854375015</created>
@@ -257,11 +225,18 @@
       <option name="project" value="LOCAL" />
       <updated>1554113654205</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="updated react-navigation version.">
+      <created>1561987575946</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1561987575947</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="3738000" />
+    <option name="totallyTimeSpent" value="3776000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1680" height="1050" extended-state="0" />
@@ -306,7 +281,8 @@
     <MESSAGE value="updated snackbar." />
     <MESSAGE value="updated package version." />
     <MESSAGE value="updated rn-snackbar." />
-    <option name="LAST_COMMIT_MESSAGE" value="updated rn-snackbar." />
+    <MESSAGE value="updated react-navigation version." />
+    <option name="LAST_COMMIT_MESSAGE" value="updated react-navigation version." />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/components/icon/index.js">
@@ -372,13 +348,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="15" lean-forward="true" selection-start-line="15" selection-end-line="15" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/scenes/authLoading.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
@@ -418,13 +387,6 @@
     <entry file="file://$PROJECT_DIR$/src/utilities/constants.js">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/config.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="26" selection-start-line="6" selection-start-column="2" selection-end-line="6" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/scenes/authStack.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
@@ -439,6 +401,20 @@
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="26" selection-start-line="6" selection-start-column="2" selection-end-line="6" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="19" selection-start-line="2" selection-start-column="19" selection-end-line="2" selection-end-column="19" />
         </state>
       </provider>
     </entry>
