@@ -1,8 +1,6 @@
 import { Dimensions, StyleSheet, PixelRatio } from 'react-native';
-import { isIos } from '../utilities';
 
 const { width, height } = Dimensions.get('window');
-
 export { height, width };
 
 export const COLOR = {
@@ -20,11 +18,6 @@ export const COLOR = {
 };
 
 export default StyleSheet.create({
-  sceneContainer: {
-    flex: 1,
-    paddingTop: isIos() ? 40 : 20
-  },
-
   whUndefined: { width: undefined, height: undefined },
 
   w25: { width: 25 },
