@@ -3,7 +3,7 @@ import { Keyboard, Text, TouchableOpacity, TouchableWithoutFeedback, View } from
 
 import { Icon, Input } from '../../components';
 import styles, { COLOR } from '../../styles';
-import { APP_STACK } from '../../utilities';
+import { APP_STACK } from '../../constants';
 
 export default class Login extends React.Component {
   state = { email: '', password: '' };

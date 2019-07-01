@@ -2,7 +2,7 @@ import React from 'react';
 import { Text, TouchableOpacity, View } from 'react-native';
 
 import styles from '../../styles';
-import { LOGIN, SIGN_UP } from '../../utilities';
+import { LOGIN, SIGN_UP } from '../../constants';
 
 export default class Welcome extends React.Component {
   login = () => {

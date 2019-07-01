@@ -5,9 +5,9 @@ import Login from './login/login';
 import Signup from './signup/signup';
 import Welcome from './welcome/welcome';
 
-import styles, { COLOR } from '../styles';
 import { nullHeader } from '../components';
-import { WELCOME, LOGIN, SIGN_UP } from '../utilities';
+import { WELCOME, LOGIN, SIGN_UP } from '../constants';
+import config from "../../config";
 
 const ROUTE_CONFIG = {
   [WELCOME]: {
@@ -29,12 +29,8 @@ const ROUTE_CONFIG = {
 };
 const STACK_NAVIGATOR_CONFIG = {
   initialRouteName: WELCOME,
-  navigationOptions: {
-    headerStyle: styles.bgApp,
-    headerBackTitleStyle: COLOR.WHITE,
-    headerTintColor: COLOR.WHITE,
-    headerTitleStyle: styles.cWhite
-  }
+  headerMode: 'float',
+  defaultNavigationOptions: config.defaultNavigationOptions
 };
 
 export default createStackNavigator(ROUTE_CONFIG, STACK_NAVIGATOR_CONFIG);

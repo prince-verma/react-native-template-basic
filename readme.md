@@ -5,19 +5,62 @@ This is basic template provides basic folder-structure of your project and imple
 
 react-native-basic-template is kind of start-kit or seed project to init a new application.
 It has dependency of react-native-vector-icons, to provide the Default icons support.
-```
-Note:- implemented react-navigation 2.x.
-has some issues in navigationOptions for drawerNavigator. 
-So, Currently we implemented a work-around solution for drawerNavigator.
-```
 
-## Usuage
+## Usuage and setup
 
 ```
 react-native init <project-name> --template basic
 react-native link
 ```
+Now we are using `react-navigation@3.x`, so we have to follow some additional steps for Android setup. 
 
+ - We are using `react-native-gesture-handler`, so to finalise installation of `react-native-gesture-handler` for Android, be sure to make the necessary modifications to MainActivity.java:
+```diff
+import com.facebook.react.ReactActivity;
++ import com.facebook.react.ReactActivityDelegate;
++ import com.facebook.react.ReactRootView;
++ import com.swmansion.gesturehandler.react.RNGestureHandlerEnabledRootView;
+
+public class MainActivity extends ReactActivity {
+
+  @Override
+  protected String getMainComponentName() {
+    return "Example";
+  }
+
++  @Override
++  protected ReactActivityDelegate createReactActivityDelegate() {
++    return new ReactActivityDelegate(this, getMainComponentName()) {
++      @Override
++      protected ReactRootView createRootView() {
++       return new RNGestureHandlerEnabledRootView(MainActivity.this);
++      }
++    };
++  }
+}
+```
+
+ - We are using `react-native-screens`, so we need to modify `MainActivity.java` class to extend [`ReactFragmentActivity`](https://github.com/facebook/react-native/blob/0.57-stable/ReactAndroid/src/main/java/com/facebook/react/ReactFragmentActivity.java).
+```diff
+-import com.facebook.react.ReactActivity;
++import android.os.Bundle;
++import com.facebook.react.ReactFragmentActivity;
+ import com.facebook.react.ReactActivityDelegate;
+
+-public class MainActivity extends ReactActivity {
++public class MainActivity extends ReactFragmentActivity {
++
++    @Override
++    protected void onCreate(Bundle savedInstanceState) {
++        super.onCreate(null);
++    }
+
+     @Override
+     protected String getMainComponentName() {
+```
+In case you have any problem in this please refer `react-native-screens (https://github.com/kmagiera/react-native-screens)`
+
+<br/>
 This will provide the basic folder structure and some resulable components that you can use in your project.
 This will saves your time by providing some basic implementaion of an react-native applicaton.
 
@@ -87,7 +130,9 @@ import { Input } from '../../components';
 // provide this as last child in your root component. import the snackbar from components.
 import { SnackBar, showSnackBar } from './src/components';
 
-<SnackBar id={"SnackBar_Root_App"} />
+// we can specify default-position of the Snackbar here
+// and provide a top default top margin
+<SnackBar id={"SnackBar_Root_App"} position={'top'} marginFromTop={30}/>
 
 
 // import showSnackBar function from same file and use it as
@@ -173,9 +218,11 @@ The folder structure that you will have is :
 │   |   |       welcome.js
 │   └─── styles
 │   |        index.js
+│   └─── constans
+│   |        index.js
+│   |        screenNameContants.js
 │   └─── utilities
 │   |        api.js
-│   |        constants.js
 │   |        index.js
 │   |        navigationService.js
 │   |        storage.js

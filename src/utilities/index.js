@@ -6,5 +6,4 @@ const { width, height } = Dimensions.get('window');
 
 export { width, height, Api, Storage };
 export * from './validations';
-export * from './constants';
 export * from './navigationService';

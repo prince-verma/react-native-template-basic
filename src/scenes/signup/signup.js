@@ -3,7 +3,8 @@ import { Keyboard, Text, TouchableOpacity, TouchableWithoutFeedback, View } from
 
 import { Icon, Input } from '../../components';
 import styles, { COLOR } from '../../styles';
-import { APP_STACK, LOGIN, WELCOME, getStackResetAction } from '../../utilities';
+import { getStackResetAction } from '../../utilities';
+import { APP_STACK, LOGIN, WELCOME } from '../../constants';
 
 export default class Signup extends React.Component {
   state = { email: '', password: '' };

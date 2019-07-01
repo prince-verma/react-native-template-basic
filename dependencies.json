@@ -1,6 +1,8 @@
 {
-  "react-native-simple-events": "^1.0.1",
   "axios": "^0.18.0",
+  "react-native-gesture-handler": "^1.3.0",
+  "react-native-screens": "^1.0.0-alpha.22",
+  "react-native-simple-events": "^1.0.1",
   "react-native-vector-icons": "^4.6.0",
-  "react-navigation": "^2.18.2"
+  "react-navigation": "^3.11.0"
 }

@@ -1,8 +1,9 @@
 import React from 'react';
 import { StyleSheet, Text, TouchableHighlight, View } from 'react-native';
-import { AUTH_STACK } from '../../utilities';
+import { AUTH_STACK } from '../../constants';
 import styles from '../../styles';
 import { Icon } from '../../components';
+import { getStackResetAction } from "../../utilities";
 
 export default class Menu extends React.PureComponent {
   navigateToMenu = () => {
@@ -11,7 +12,7 @@ export default class Menu extends React.PureComponent {
     if (navigateTo === AUTH_STACK) {
       navigation.navigate(AUTH_STACK);
     } else {
-      navigation.navigate(navigateTo);
+      navigation.dispatch(getStackResetAction(navigateTo));
     }
   };
 
@@ -27,7 +28,7 @@ export default class Menu extends React.PureComponent {
       >
         <View style={[{ flex: 1 }, styles.flexRow, styles.mv2]}>
           {/* ----------------- icon --------------------------- */}
-          <Icon name={icon} color={isSelected ? '#0059a3' : '#9B9B9B'} size={24} />
+          <Icon name={icon} color={isSelected ? '#0059a3' : '#9B9B9B'} size={24}/>
           {/* ----------------- icon --------------------------- */}
 
           {/* ----------------- title --------------------------- */}

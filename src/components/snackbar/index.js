@@ -1,21 +1,21 @@
 import React, { PureComponent } from 'react';
-import {
-  Animated,
-  Dimensions,
-  PanResponder,
-  Text,
-  TouchableOpacity,
-  View,
-} from 'react-native';
+import { Animated, Dimensions, PanResponder, Text, TouchableOpacity, View, } from 'react-native';
 import Events from 'react-native-simple-events';
 
 const { width } = Dimensions.get('window');
+
+export const showSnackBarWithButton = (message = "", cb = () => ( {} ), otherOptions) => {
+  return showSnackBar({
+    message, confirmText: "OK", onConfirm: cb,
+    ...otherOptions
+  })
+};
 
 export const showSnackBar = (data = {}) => {
   const {
     message = 'Your custom message',
     textColor = '#FFF',
-    position = 'bottom',
+    position,
     confirmText = '',
     buttonColor = '#03a9f4',
     duration = 4000,
@@ -44,11 +44,13 @@ export class SnackBar extends PureComponent {
   constructor(props) {
     super(props);
 
+    this.defaultPosition = props.position || 'bottom';
+    this.marginFromTop = props.marginFromTop || 0;
     this.state = {
       message: 'Had a snack at snackBar.',
       confirmText: null,
       onConfirm: null,
-      position: 'bottom',
+      position: this.defaultPosition,
       show: false,
       animationTime: 250,
       maxHeight: 48,
@@ -56,6 +58,7 @@ export class SnackBar extends PureComponent {
       buttonColor: '#03a9f4',
       backgroundColor: '#323232',
 
+      marginFromTop: this.marginFromTop,
       top: new Animated.Value(-48),
       bottom: new Animated.Value(-48),
 
@@ -106,11 +109,12 @@ export class SnackBar extends PureComponent {
       message,
       confirmText,
       onConfirm,
-      position = 'bottom',
+      position = this.defaultPosition,
       height = 48,
       duration = 4000,
       animationTime = 250,
       show = true,
+      marginFromTop = this.marginFromTop,
       ...otherOptions
     } = options;
 
@@ -136,7 +140,7 @@ export class SnackBar extends PureComponent {
           if (position === 'top') {
             Animated.sequence([
               Animated.timing(this.state.top, {
-                toValue: 0,
+                toValue: marginFromTop,
                 duration: animationTime,
               }),
               Animated.delay(duration),
@@ -205,10 +209,7 @@ export class SnackBar extends PureComponent {
   handlePanResponderRelease = () => {
     const x = this.animatedValueX;
 
-    if (x > width / 2 || x < -1 * width / 2) {
-      this.setPanValueToZero();
-      this.setState({ show: false });
-    } else {
+    if (!( x > width / 2 || x < -1 * width / 2 )) {
       Animated.spring(this.state.pan, { toValue: { x: 0, y: 0 } }).start();
     }
   };
