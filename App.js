@@ -1,9 +1,10 @@
 import React from 'react';
 import { StatusBar, View } from 'react-native';
 import { useScreens } from 'react-native-screens';
+import SnackBar from 'react-native-swipeable-snackbar';
 
 import Index from './src/scenes';
-import { AlertView, SnackBar } from './src/components';
+import { AlertView } from './src/components';
 import styles, { COLOR } from './src/styles';
 
 useScreens();

@@ -1,9 +1,9 @@
 import React from 'react';
 import { Text, View } from 'react-native';
+import { showSnackBarWithButton } from 'react-native-swipeable-snackbar';
 
 import { ABOUT_US } from '../../constants';
 import styles from '../../styles';
-import { showSnackBarWithButton } from "../../components";
 
 export default class Profile extends React.Component {
   goToAboutUS = () => {

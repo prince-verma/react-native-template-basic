@@ -128,7 +128,7 @@ import { Input } from '../../components';
 
 ```
 // provide this as last child in your root component. import the snackbar from components.
-import { SnackBar, showSnackBar } from './src/components';
+import SnackBar from 'react-native-swipeable-snackbar';
 
 // we can specify default-position of the Snackbar here
 // and provide a top default top margin
@@ -136,6 +136,7 @@ import { SnackBar, showSnackBar } from './src/components';
 
 
 // import showSnackBar function from same file and use it as
+import { showSnackBar } from 'react-native-swipeable-snackbar';
 
 showSnackBar({
   message:"custom message", 
@@ -197,8 +198,6 @@ The folder structure that you will have is :
 │   |   |       index.js
 │   |   |       inputStyle.js
 │   |   |       textInput.js
-│   |   └─── snackbar
-│   |   |       index.js
 │   |   |   
 │   └─── scenes
 │   |        index.js
