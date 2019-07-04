@@ -60,6 +60,33 @@ public class MainActivity extends ReactActivity {
 ```
 In case you have any problem in this please refer `react-native-screens (https://github.com/kmagiera/react-native-screens)`
 
+
+#### `react-native-gesture-handler`/`react-native-screens` isn't working on Android
+```
+As we are using react-native-gesture-handler and react-native-screens in this template we will going to face issue with 'react-native run-android', the project can't be builded.
+```
+You will have error like `Task :react-native-gesture-handler:compileDebugJavaWithJavac FAILED`.
+<br/>
+If your RN project is configured to use AndroidX, but some of your deps are not (like react-native-gesture-handler) follow these steps:
+
+ - Install Jetifier npm install --save-dev jetifier or yarn add -D jetifier
+ - Edit your package.json and add a postinstall script: "postinstall": "npx jetify", like so:
+```
+    "scripts": {
+        "postinstall": "npx jetify"
+       ...
+    }    
+```
+ - Run npm install or yarn
+ - At the end of install you should see something like:
+ ```
+    $ npx jetify
+    Jetifier found N file(s) to forward-jetify. Using X workers...`. This means it's working. The project should compile fine now.
+```
+
+See: `https://github.com/mikehardy/jetifier` for more infor.
+
+
 <br/>
 This will provide the basic folder structure and some resulable components that you can use in your project.
 This will saves your time by providing some basic implementaion of an react-native applicaton.
