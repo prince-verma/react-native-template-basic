@@ -1,8 +1,8 @@
-export const AUTH_STACK = 'AuthScreen';
-export const APP_STACK = 'AppStack';
-export const AUTH_LOADING = 'AuthLoading';
+export const APP_STACK = 'APP_STACK';
+export const APP = 'App';
 export const WELCOME = 'Welcome';
-export const SIGN_UP = 'Signup';
+export const SIGN_UP = 'Sign up';
 export const LOGIN = 'Login';
 export const PROFILE = 'Profile';
-export const ABOUT_US = 'AboutUs';
+export const INITIAL_APP_ROUTE = PROFILE;
+export const ABOUT_US = 'About us';

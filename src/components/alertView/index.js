@@ -1,14 +1,14 @@
 import React from 'react';
 import { Modal, StyleSheet, Text, TouchableHighlight, TouchableWithoutFeedback, View } from 'react-native';
 import Events from 'react-native-simple-events';
-import { height, isFunction, width } from '../../utilities';
+import { isFunction } from '../../utilities/validations';
 
 const defaultButtons = [{
   title: 'CANCEL', onPress: () => {
-  }
+  },
 }, {
   title: 'OK', onPress: () => {
-  }
+  },
 }];
 
 export function Alert(data = {}) {
@@ -30,7 +30,7 @@ export class AlertView extends React.Component {
       title: 'Alert',
       message: 'Your custom message',
       buttons: defaultButtons,
-      show: false
+      show: false,
     };
   }
 
@@ -109,11 +109,11 @@ export class AlertView extends React.Component {
 
 const styles = StyleSheet.create({
   container: {
-    width,
-    height,
+    width: '100%',
+    height: '100%',
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: 'transparent'
+    backgroundColor: 'transparent',
   },
   alertBoxContainer: {
     elevation: 24,
@@ -122,16 +122,16 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.3,
     padding: 0,
     marginHorizontal: 40,
-    backgroundColor: '#FFFFFF'
+    backgroundColor: '#FFFFFF',
   },
   title: {
     color: '#1f1f1f',
-    fontSize: 20
+    fontSize: 20,
   },
   message: {
     color: '#9b9b9b',
     fontSize: 16,
-    lineHeight: 24
+    lineHeight: 24,
   },
   buttonsContainer: {
     flexDirection: 'row',
@@ -139,7 +139,7 @@ const styles = StyleSheet.create({
     height: 52,
     paddingVertical: 8,
     marginLeft: 24,
-    marginRight: 8
+    marginRight: 8,
   },
   buttonStyle: {
     height: 36,
@@ -147,10 +147,10 @@ const styles = StyleSheet.create({
     paddingHorizontal: 8,
     justifyContent: 'center',
     marginRight: 8,
-    alignItems: 'center'
+    alignItems: 'center',
   },
   buttonText: {
     color: '#03a9f4',
-    fontSize: 14
-  }
+    fontSize: 14,
+  },
 });

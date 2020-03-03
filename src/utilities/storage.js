@@ -1,4 +1,4 @@
-import { AsyncStorage } from 'react-native';
+import AsyncStorage from '@react-native-community/async-storage';
 
 export async function set(key, object) {
   return AsyncStorage.setItem(key, getString(object));
@@ -12,7 +12,7 @@ export async function get(key) {
           return resolve(
             values.map(item => {
               return [item[0], getJSONObject(item[1])];
-            })
+            }),
           );
         })
         .catch(reject);

@@ -3,7 +3,7 @@ import styles, { COLOR } from '../../styles';
 import Icon from '../icon';
 import React from 'react';
 
-export const nullHeader = { header: null };
+export const nullHeader = { header: () => null };
 
 export const MenuIcon = ({ navigation }) => {
   return (

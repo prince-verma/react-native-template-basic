@@ -6,7 +6,7 @@ export default class ReloadViewOnAppStateChange extends React.PureComponent {
     super(p);
 
     this.state = {
-      reload: true
+      reload: true,
     };
   }
 

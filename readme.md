@@ -6,13 +6,17 @@ This is basic template provides basic folder-structure of your project and imple
 react-native-basic-template is kind of start-kit or seed project to init a new application.
 It has dependency of react-native-vector-icons, to provide the Default icons support.
 
-## Usuage and setup
+## Usage and setup
 
 ```
 react-native init <project-name> --template basic
 react-native link
 ```
-Now we are using `react-navigation@3.x`, so we have to follow some additional steps for Android setup. 
+or 
+```
+npx react-native init <project-name> --template basic
+```
+Now we are using `react-navigation@5.x`, so we have to follow some additional steps for Android setup. 
 
  - We are using `react-native-gesture-handler`, so to finalise installation of `react-native-gesture-handler` for Android, be sure to make the necessary modifications to MainActivity.java:
 ```diff
@@ -63,31 +67,34 @@ In case you have any problem in this please refer `react-native-screens (https:/
 
 #### `react-native-gesture-handler`/`react-native-screens` isn't working on Android
 ```
-As we are using react-native-gesture-handler and react-native-screens in this template we will going to face issue with 'react-native run-android', the project can't be builded.
+As we are using react-native-gesture-handler and react-native-screens in this template, so may be you can have an issue with 'react-native run-android', the project can't be builded.
 ```
 You will have error like `Task :react-native-gesture-handler:compileDebugJavaWithJavac FAILED`.
 <br/>
-If your RN project is configured to use AndroidX, but some of your deps are not (like react-native-gesture-handler) follow these steps:
+This tells that, your RN project is configured to use AndroidX, but some of your dependencies like like react-native-gesture-handler are configured with AndroidX.
+<br/>
+To fix this issue follow these steps:
 
- - Install Jetifier npm install --save-dev jetifier or yarn add -D jetifier
- - Edit your package.json and add a postinstall script: "postinstall": "npx jetify", like so:
+ - Install Jetifier `npm install --save-dev jetifier` or `yarn add -D jetifier`
+ - Edit your package.json and add a postinstall script: `"postinstall": "npx jetify"` like so:
 ```
     "scripts": {
+        ......
         "postinstall": "npx jetify"
-       ...
     }    
 ```
- - Run npm install or yarn
+ - Run `npm install` or `yarn`
  - At the end of install you should see something like:
  ```
     $ npx jetify
     Jetifier found N file(s) to forward-jetify. Using X workers...`. This means it's working. The project should compile fine now.
 ```
 
-See: `https://github.com/mikehardy/jetifier` for more infor.
+See: `https://github.com/mikehardy/jetifier` for more information.
 
 
-<br/>
+### react-native-template-basic
+
 This will provide the basic folder structure and some resulable components that you can use in your project.
 This will saves your time by providing some basic implementaion of an react-native applicaton.
 
@@ -108,7 +115,7 @@ For more information about vector icons follow link https://github.com/oblador/r
 
 
 ```
-import { Icon } from '../../components';
+import Icon from '../../components/icon';
 
 
 <Icon 
@@ -120,12 +127,12 @@ import { Icon } from '../../components';
 
 ### Input
 
-#### usuage
+#### usage
 
-Just import the Input compopent and it will provide basic animated input componnet.
+Just import the Input component and it will provide basic animated input componnet.
 
 ```
-import { Input } from '../../components';
+import Input from '../../components/input';
 
 
 <Input
@@ -150,7 +157,8 @@ import { Input } from '../../components';
 
 ### Snackbar
   Snackbar are used to display some short messages in your application for a short duration of time.
-
+  For more information about snackbar follow link https://www.npmjs.com/package/react-native-swipeable-snackbar.
+    
 #### usuage
 
 ```
@@ -182,7 +190,7 @@ showSnackBar({
 
 ```
 // provide this as last child in your root component. import the Alert from components.
-import { AlertView, Alert } from './src/components';
+import { AlertView, Alert } from './src/components/alert';
 
 
 <AlertView id={"Alert_Root_App"} />
@@ -208,11 +216,11 @@ The folder structure that you will have is :
 └─── ios
 └─── node_modules
 └─── src
-│   └─── components
+│   └─── api
 │   |        index.js
+│   └─── components
 │   |        reloadOnAppStateChange.js
 │   |        loading.js
-│   |        
 │   |   └─── header
 │   |   |       index.js
 │   |   |       navigationHeaders.js
@@ -225,36 +233,46 @@ The folder structure that you will have is :
 │   |   |       index.js
 │   |   |       inputStyle.js
 │   |   |       textInput.js
-│   |   |   
-│   └─── scenes
-│   |        index.js
-│   |        authStack.js
-│   |        
-│   |   └─── aboutUs
-│   |   |       aboutUs.js
-│   |   └─── drawer
-│   |   |       drawer.js
-│   |   |       drawerMenu.js
-│   |   |       drawerSideMenu.js
-│   |   └─── login
-│   |   |       login.js
-│   |   └─── signup
-│   |   |       signup.js
-│   |   └─── welcome
-│   |   |       welcome.js
-│   └─── styles
-│   |        index.js
 │   └─── constans
 │   |        index.js
 │   |        screenNameContants.js
+│   └─── redux
+│   |   └─── actions
+│   |   |       authentication.actions.js
+│   |   |       sideMenu.actions.js
+│   |   |       viewport.actions.js
+│   |   └─── reducers
+│   |   |       authentication.reducer.js
+│   |   |       index.js
+│   |   |       sideMenu.reducer.js
+│   |   |       viewport.reducer.js
+│   |        reduxConstants.js
+│   |        store.js
+│   └─── scenes
+│   |   └─── aboutUs
+│   |   |       aboutUs.js
+│   |   └─── drawer
+│   |   |       index.js
+│   |   |       drawerMenu.js
+│   |   |       drawerSideMenu.js
+│   |   └─── login
+│   |   |       index.js
+│   |   └─── profile
+│   |   |       index.js
+│   |   └─── signup
+│   |   |       index.js
+│   |   └─── welcome
+│   |   |       index.js
+│   |        index.js
+│   └─── styles
+│   |        index.js
 │   └─── utilities
 │   |        api.js
 │   |        index.js
 │   |        navigationService.js
 │   |        storage.js
 │   |        validations.js
-│   
-|    App.js
+|
 |    App.json
 |    config.js
 |    index.js

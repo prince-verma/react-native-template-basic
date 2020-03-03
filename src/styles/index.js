@@ -134,6 +134,9 @@ export default StyleSheet.create({
   p10: { padding: 10 },
   p15: { padding: 15 },
   p20: { padding: 20 },
+  p30: { padding: 30 },
+  p35: { padding: 35 },
+  p40: { padding: 40 },
 
   ph0: { paddingHorizontal: 0 },
   ph2: { paddingHorizontal: 2 },
