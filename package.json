@@ -1,6 +1,6 @@
 {
   "name": "react-native-template-basic",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Templates are used to create a project based on some fix architecture. This is basic template provides basic folder-structure of your project and implements some reusable components/functions etc.",
   "repository": {
     "type": "git",
