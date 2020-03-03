@@ -20,8 +20,13 @@ We also introduces `redux`, `redux-thunk`, and `react-redux` in the template for
 <br /> 
 Now we are using `react-navigation@5.x`, so we have to follow some additional steps for Android setup. 
 
- - We are using `react-native-gesture-handler`, so to finalise installation of `react-native-gesture-handler` for Android, be sure to make the necessary modifications to MainActivity.java:
-```diff
+ - To finalize installation of react-native-screens for Android, add the following two lines to dependencies section in android/app/build.gradle:
+ ```
+implementation 'androidx.appcompat:appcompat:1.1.0-rc01'
+implementation 'androidx.swiperefreshlayout:swiperefreshlayout:1.1.0-alpha02'
+```
+- We are using `react-native-gesture-handler`, so to finalise installation of `react-native-gesture-handler` for Android, be sure to make the necessary modifications to MainActivity.java:
+```
 import com.facebook.react.ReactActivity;
 + import com.facebook.react.ReactActivityDelegate;
 + import com.facebook.react.ReactRootView;
@@ -47,7 +52,7 @@ public class MainActivity extends ReactActivity {
 ```
 
  - We are using `react-native-screens`, so we need to modify `MainActivity.java` class to extend [`ReactFragmentActivity`](https://github.com/facebook/react-native/blob/0.57-stable/ReactAndroid/src/main/java/com/facebook/react/ReactFragmentActivity.java).
-```diff
+```
 -import com.facebook.react.ReactActivity;
 +import android.os.Bundle;
 +import com.facebook.react.ReactFragmentActivity;
