@@ -267,13 +267,11 @@ The folder structure that you will have is :
 │   └─── styles
 │   |        index.js
 │   └─── utilities
-│   |        api.js
-│   |        index.js
-│   |        navigationService.js
 │   |        storage.js
 │   |        validations.js
 |
 |    App.json
+|    App.js
 |    config.js
 |    index.js
 |    LICENSE
