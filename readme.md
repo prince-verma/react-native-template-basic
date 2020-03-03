@@ -16,6 +16,8 @@ or
 ```
 npx react-native init <project-name> --template basic
 ```
+We also introduces `redux`, `redux-thunk`, and `react-redux` in the template for basic usage like, for maintaining screen dimensions etc.
+<br /> 
 Now we are using `react-navigation@5.x`, so we have to follow some additional steps for Android setup. 
 
  - We are using `react-native-gesture-handler`, so to finalise installation of `react-native-gesture-handler` for Android, be sure to make the necessary modifications to MainActivity.java:
